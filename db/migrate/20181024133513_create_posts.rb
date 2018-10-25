@@ -4,6 +4,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :thread_post_id
       t.text :content
       t.integer :user_id
+      t.integer :up_vote
+      t.integer :down_vote
 
       t.timestamps
     end

@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2018_10_24_133624) do
     t.integer "thread_post_id"
     t.text "content"
     t.integer "user_id"
+    t.integer "up_vote"
+    t.integer "down_vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +73,8 @@ ActiveRecord::Schema.define(version: 2018_10_24_133624) do
 
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_id"
+    t.integer "ownerable_id"
+    t.string "ownerable_type"
     t.integer "vote_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

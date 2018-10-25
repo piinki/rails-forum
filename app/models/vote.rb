@@ -1,3 +1,3 @@
 class Vote < ApplicationRecord
-  belongs_to :vote
+  belongs_to :ownerable, polymorphic: true
 end
