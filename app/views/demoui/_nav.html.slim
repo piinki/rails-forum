@@ -1,0 +1,53 @@
+.nav
+  .nav-categories.js-dropdown
+    .nav-select
+      .btn-select[data-dropdown-btn="categories"]
+        | All Categories
+      nav.dropdown.dropdown--design-01[data-dropdown-list="categories"]
+        ul.dropdown-catalog.row
+          li.col-xs-6
+            = link_to "#", class: "category" do
+              i.bg-f9bc64
+              | Hobbies
+          li.col-xs-6
+            = link_to "#", class: "category" do
+              i.bg-348aa7
+              | Social
+          li.col-xs-6
+            = link_to "#", class: "category" do
+              i.bg-4436f8
+              | Video
+          li.col-xs-6
+            = link_to "#", class: "category" do
+              i.bg-5dd39e
+              | Random
+          li.col-xs-6
+            = link_to "#", class: "category" do
+              i.bg-ff755a
+              | Arts
+          li.col-xs-6
+            = link_to "#", class: "category" do
+              i.bg-bce784
+              | Tech
+
+    .nav-select
+      .btn-select[data-dropdown-btn="tags"]
+        | Tags
+      .dropdown.dropdown--design-01[data-dropdown-list="tags"]
+        .tags
+          = link_to "gaming", "#", class: "bg-4f80b0"
+          = link_to "nature", "#", class: "bg-424ee8"
+          = link_to "entertainment", "#", class: "bg-36b7d7"
+          = link_to "selfie", "#", class: "bg-ef429e"
+  .nav-menu.js-dropdown
+    ul
+      li.active
+          = link_to "Latest"
+      li
+          = link_to "Unread"
+      li
+          = link_to "Rising"
+      li
+          = link_to "Most Liked"
+      li
+          = link_to "Follow Feed"

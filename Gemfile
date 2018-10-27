@@ -27,7 +27,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console", '>= 3.3.0'
   gem "listen", '>= 3.0.5', '< 3.2'
   gem "spring"
   gem "spring-watcher-listen", '~> 2.0.0'
@@ -45,6 +44,7 @@ gem "devise"
 gem "figaro"
 gem "carrierwave"
 gem "i18n"
+gem "i18n-js"
 gem 'kaminari'
 gem "seed-fu"
 gem "hashie"
@@ -53,3 +53,6 @@ gem "rack-cors", require: "rack/cors"
 gem "grape"
 gem "grape-active_model_serializers"
 gem "active_model_serializers"
+gem "jwt"
+gem "slim"
+# gem "slim-rails"

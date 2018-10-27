@@ -1,0 +1,31 @@
+div
+  .dropdown-user
+    a.dropdown-user-label.bg-00bd9d[href="#"]
+      | T
+    .dropdown-user-nav
+      = link_to "#" do
+        = icon "fas", "user-plus"
+      = link_to "#" do
+        = icon "fas", "comment-alt"
+    .dropdown-user-info
+      a[href="#"]
+        | Tesla Motors
+      p
+        | Last post 4 hours ago. Joined Jun 1, 16
+    .dropdown-user-icons
+      = link_to "#" do
+        = image_tag "Intermediate.svg", alt: "user-icon"
+      = link_to "#" do
+        = image_tag "Bot.svg", alt: "user-icon"
+      = link_to "#" do
+        = image_tag "Animal_Lover.svg", alt: "user-icon"
+
+    .dropdown-user-statistic
+      div
+        | Threads -
+        span
+          | 1184
+      div
+        | Posts -
+        span
+          | 5,863

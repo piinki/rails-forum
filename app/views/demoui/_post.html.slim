@@ -1,0 +1,40 @@
+.topic
+  .topic-head
+    .topic-avatar
+      = link_to "#", class: "avatar" do
+        = image_tag "B.svg", alt: "avatar"
+    .topic-caption
+      .topic-name
+        = link_to "Benjamin Caesar"
+      .topic-date
+        = icon "fas", "clock"
+        | 06 May, 2017
+  .topic-content
+    .topic-text
+      p
+        | Welcome to Prey. A lot of this game is going to feel familiar — you’ll see bits and pieces from a dozen well-loved games in its DNA. But that doesn’t mean you’re going to immediately understand how everything works. That’s what we’re here for. Let’s talk about some of the habits you’re going to have to pick up, concepts you’ll have to learn and choices you’re going to be making as you play.
+      p
+        | We’re going to break it down into three rough categories: Your world, your enemies (and ways to kill them) and yourself.
+    .topic-footer
+      .topic-footer-likes
+        div
+          = link_to "#" do
+            = icon "fas", "chevron-circle-up"
+          span
+            | 201
+        div
+          = link_to "#" do
+            = icon "fas", "chevron-circle-down"
+          span
+            | 100
+      .topic-footer-share
+        div[data-visible="desktop"]
+          a[href="#"]
+            = icon "fas", "share"
+          a[href="#"]
+            = icon "fas", "flag"
+        div[data-visible="mobile"]
+          a[href="#"]
+            = icon "fas", "share"
+        a[href="#"]
+          = icon "fas", "quote-right"

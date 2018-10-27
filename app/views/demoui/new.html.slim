@@ -1,0 +1,101 @@
+.signup
+  header.signup-header
+    .container
+      .signup-header-content
+        p
+          a[href="#"]
+            | Already have an account?
+        a.btn[href="#"]
+          | Sign In
+  main.signup-main
+    img.signup-bg[src="images/signup-bg.png" alt="bg"]
+    .container
+      .signup-container
+        .signup-logo
+          a[href="#"]
+            img[src="fonts/icons/main/Logo_Forum.svg" alt="logo"]
+            | Unity
+        .signup-head
+          h3
+            | Create a New Unity Account
+          p
+            | By singin up you can start posting, replaying to topics, earn badges, favorite, vote topics and many more.
+        .signup-form
+          .row[data-visible="desktop"]
+            .col-md-6
+              .signup-section
+                label.signup-label[for="first-name"]
+                  | First Name
+                input#first-name.form-control[type="text" value="Jane"]
+            .col-md-6
+              .signup-section
+                label.signup-label[for="last-name"]
+                  | Last Name
+                input#last-name.form-control[type="text" value="Doe"]
+          .signup-section
+            label.signup-label[for="username"]
+              | Username
+            input#username.form-control[type="text" value="Janeunity9"]
+          .signup-section
+            label.signup-label[for="email"]
+              | Emain Address
+            input#email.form-control[type="text" value="Jane326@gmail.com"]
+          .signup-section
+            label.signup-label[for="password"]
+              | Password
+            .message-input
+              input#password.form-control[type="password" value="*********"]
+              span.message-input-strong
+                | strong
+          .signup-checkbox
+            .row
+              .col-md-6
+                label.signup-box
+
+                label.custom-checkbox
+                  input[type="checkbox" checked="checked"]
+                  i
+                span
+                  | I agree to the Terms & Conditions.
+              .col-md-6[data-visible="desktop"]
+                label.signup-box
+
+                label.custom-checkbox
+                  input[type="checkbox"]
+                  i
+                span
+                  | Subscribe to newsletter
+          a.signup-btn-create.btn.btn--type-02[href="#"]
+            | Create New Account
+  footer.signup-footer
+    .container
+      .signup-footer-content
+        ul.signup-footer-menu
+          li
+            a[href="#"]
+              | Teams
+          li
+            a[href="#"]
+              | Privacy
+          li
+            a[href="#"]
+              | Send Feedback
+        ul.signup-footer-social
+          li
+            a[href="#"]
+              i.fa.fa-facebook-square[aria-hidden="true"]
+          li
+            a[href="#"]
+              i.fa.fa-twitter[aria-hidden="true"]
+          li
+            a[href="#"]
+              i.fa.fa-google-plus[aria-hidden="true"]
+          li
+            a[href="#"]
+              i.fa.fa-dribbble[aria-hidden="true"]
+          li
+            a[href="#"]
+              i.fa.fa-cloud[aria-hidden="true"]
+          li
+            a[href="#"]
+              i.fa.fa-rss[aria-hidden="true"]

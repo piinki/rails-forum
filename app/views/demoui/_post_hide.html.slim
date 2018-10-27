@@ -1,0 +1,22 @@
+.topic.topic--selected
+  .topic-head
+    .topic-avatar
+      = link_to "#", class: "avatar" do
+        = image_tag "B.svg", alt: "avatar"
+    .topic-caption
+      .topic-name
+        = link_to "Benjamin Caesar"
+      .topic-date
+        = icon "fas", "clock"
+        | 06 May, 2017
+  .topic-content
+    .topic-text
+      p
+        | This post has been hidden by a moderator. Received too much downvotes.
+    .topic-footer
+      .topic-footer-likes
+        div
+          = link_to "#" do
+            = icon "fas", "chevron-circle-down"
+          span
+            | 100

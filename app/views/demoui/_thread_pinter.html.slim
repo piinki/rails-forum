@@ -1,0 +1,27 @@
+.posts-item.bg-fef2e0
+  .posts-section-left
+    .posts-topic
+      .posts-content
+        h3
+          i
+            = image_tag "Pinned.svg", alt: "Prinned"
+          | Welcome New Users! Please read this before posting!
+        p
+          | Congratulations, you have found the Community! Before you make a new topic or post, please read community guidelines.
+  .posts-section-right
+    .posts-users.js-dropdown
+      div
+        = link_to "#", class: "avatar" do
+          = image_tag "B.svg"
+      div
+        = link_to "#", class: "avatar" do
+          = image_tag "A.svg"
+      div
+        = link_to "#", class: "avatar" do
+          = image_tag "C.svg"
+    .posts-replies
+      | 66
+    .posts-views
+      | 15.1k
+    .posts-activity
+      | 11d

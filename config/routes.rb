@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  mount API => '/'
+
+  scope "(:locale)", locale: /en|vi/ do
+    devise_for :users, controllers: {sessions: "sessions"}
+    root "demoui#home"
+    get "demoui", controller: "demoui", action: "home"
+    get "/demoui/index" => "demoui/index"
+    get "/demoui/new" => "demoui/new"
+    get "/demoui/show" => "demoui/show"
+    get "/demoui/other" => "demoui/other"
+  end
 end
