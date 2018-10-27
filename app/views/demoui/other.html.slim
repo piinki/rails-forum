@@ -1,0 +1,72 @@
+div
+  .create
+    .create-head
+      .create-title
+        = image_tag "New_Topic.svg", alt: "New topic"
+        | Create New Thread
+      span
+        | Forum Guidelines
+    .create-section
+      label.create-label[for="title"]
+        | Thread Title
+      input#title.form-control[type="text" placeholder="Add here"]
+    .row
+      .col-md-6
+        .create-section
+          label.create-label[for="category"]
+            | Select Category
+          label.custom-select
+            select#category
+              option
+                | Choose
+              option
+                | Choose #2
+              option
+                | Choose #3
+      .col-md-6
+        .create-section
+          label.create-label[for="sub-category"]
+            | Select Sub Category
+          label.custom-select
+            select#sub-category
+              option
+                | Choose
+              option
+                | Choose #2
+              option
+                | Choose #3
+    .create-section.create-textarea
+      label.create-label[for="description"]
+        | Description
+      .create-textarea-head
+        span
+          = icon "fas", "quote"
+        span
+          = icon "fas", "bold"
+        span
+          = icon "fas", "italic"
+        .create-textarea-separate
+        .create-textarea-btn
+          a.btn[href="#"]
+            | Preview
+      textarea#description.form-control
+        | Adding amazing books to your summer reading list can be as simple as signing up for the BuzzFeed Books newsletter! You'll get a review of a new book you might love every Wednesday, plus much more twice a week: great jokes and quizzes, wonderful lists, powerful essays, all the Harry Potter and YA buzz you can handle, and of course, even more book recommendations. So make some space in your beach bag now — because you're going to have a lot to read this summer.
+    .create-section
+      label.create-label[for="tags"]
+        | Add Tags
+      input#tags.form-control[type="text" placeholder="e.g. nature, science"]
+    .create-footer
+      a.create-btn-cansel.btn[href="#"]
+        | Cancel
+      a.create-btn-create.btn.btn--type-02[href="#"]
+        | Create Thread
+
+br
+hr
+br
+
+h1
+  | Hover User
+  div style="margin-top: 50px"
+    .row
+      = render "hover_user"

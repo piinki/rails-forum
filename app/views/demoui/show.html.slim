@@ -1,0 +1,46 @@
+= provide :title, t("demoui.title")
+
+= render "nav"
+
+.topics
+  .topics-heading
+    h2.topics-heading-title
+      | Which movie have you watched most recently?
+    .topics-heading-info
+      = link_to "#", class: "category" do
+        i.bg-3ebafa
+        |  Exchange
+      .tags
+        = link_to "gaming", "#", class: "bg-4f80b0"
+        = link_to "nature", "#", class: "bg-424ee8"
+        = link_to "entertainment", "#", class: "bg-36b7d7"
+  .topics-body
+    .topics-content
+      = render "post"
+      = render "post_hide"
+
+  .topics-title
+    i.icon-Watch_Later
+    | This topic will close 6 months after the last reply.
+  .topics-control
+    a.btn[href="#"]
+      i.icon-Bookmark
+      | Bookmark
+    a.btn[href="#"]
+      i.icon-Share_Topic
+      | Share
+    a.btn[href="#"]
+      i.icon-Flag_Topic
+      | Flag
+    a.btn[href="#"]
+      i.icon-Add_User
+      | Invite
+    a.btn[href="#"]
+      i.icon-Track
+      | Track
+    a.btn.btn--type-02[href="#" data-visible="desktop"]
+      i.icon-Reply_Fill
+      | Reply
+  .topics-title
+    | Suggested Topics
+= render "thread", class_post: ""
