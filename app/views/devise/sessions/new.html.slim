@@ -1,0 +1,28 @@
+.login
+  header.login-header
+  main.login-main
+    = image_tag "signup-bg.png", alt: "bg", class: "login-bg"
+    .container
+      .login-container
+        .login-logo
+          a[href="#"]
+            = image_tag "Logo_Forum.svg", alt: "logo"
+            | Forum
+        .login-head
+          h3
+            | Đăng Nhập Đi Má
+          p
+            | Không có tài khoản thì đăng ký ở đây nhé.
+        .login-form
+          = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+            .login-section
+              = f.label "Email", class: "login-label"
+              = f.email_field :email, autofocus: true, \
+                autocomplete: "email", class: "form-control", \
+                placeholder: "Enter Email", required: true
+            .login-section
+              = f.label "Password", class: "login-label"
+              = f.password_field :password, autocomplete: "off", \
+                class: "form-control", placeholder: "Enter Password", required: true
+            = f.submit "Login", class: "login-btn-create btn btn--type-02"
+= render "devise/shared/links"

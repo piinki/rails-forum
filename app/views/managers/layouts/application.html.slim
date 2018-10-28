@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title = full_title yield :title
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = stylesheet_link_tag "managers/application", media: "all"
+    = javascript_include_tag "managers/application"
+  body
+    .container-scroller
+      = render "managers/layouts/navbar"
+    .container-fluid.page-body-wrapper
+      = render "managers/layouts/sidebar"
+      .main-panel
+        .content-wrapper
+          = yield
+        =render "managers/layouts/footer"
