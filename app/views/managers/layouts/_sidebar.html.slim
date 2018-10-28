@@ -1,0 +1,31 @@
+nav#sidebar.sidebar.sidebar-offcanvas
+  ul.nav
+    li.nav-item.nav-profile
+      .nav-link
+        .user-wrapper
+          .profile-image
+            = image_tag "managers/Bot.svg", alt: "Profile image"
+          .text-wrapper
+            p.profile-name
+              | Richard V.Welsh
+            div
+              small.designation.text-muted
+                | Manager
+              span.status-indicator.online
+    li.nav-item
+      = link_to "#", class: "nav-link" do
+        = icon "fas", "bomb"
+        span.menu-title
+          | Dashboard
+    li.nav-item
+      = link_to "#ui-basic", class: "nav-link", data: {toggle: "collapse"} do
+        = icon "fas", "book"
+        span.menu-title
+          | Demo Sub Menu
+        = icon "fas", "angle-down"
+      #ui-basic.collapse
+        ul.nav.flex-column.sub-menu
+          li.nav-item
+            = link_to "Buttons", "#", class: "nav-link"
+          li.nav-item
+            = link_to "Typography", "#", class: "nav-link"

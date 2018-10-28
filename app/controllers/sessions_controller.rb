@@ -2,11 +2,13 @@ class SessionsController < Devise::SessionsController
   layout "login"
 
   def create
-    @result =
-      if user_signed_in?
-        {success: true, message: t("session.sign_in_success")}
-      else
-        {success: false, message: t("session.sign_in_fail")}
-      end
+    if user_signed_in?
+
+      binding.pry
+      
+      redirect_to managers_root_path
+    else
+      render :new
+    end
   end
 end
