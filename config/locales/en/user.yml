@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "can't be blank"
+              invalid: "not good, re-seach before join forum"
+            password:
+              blank: "can't be blank"
+            first_name:
+              blank: "do you haven't first name ?"
+            last_name:
+              blank: "What's is your name?"
+            password_confirmation:
+              confirmation: "don't match password below"

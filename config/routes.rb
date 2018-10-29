@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
-  mount API => '/'
+  mount API => "/"
 
   scope "(:locale)", locale: /en|vi/ do
-    devise_for :users, controllers: {sessions: "sessions"}
+    devise_for :users, skip: [:sessions]
+    as :user do
+      get "signin", to: "sessions#new", as: :new_user_session
+      post "signin", to: "sessions#create", as: :user_session
+      delete "signout", to: "sessions#destroy", as: :destroy_user_session
+      get "signup", to: "registrations#new"
+    end
     root "demoui#home"
 
     # For admin panel

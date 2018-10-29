@@ -6,17 +6,6 @@ header
           = image_tag "Logo_Forum.svg", alt: "logo", data: {"dropdown-btn": "logo"}
         .header-logo-btn
           |  Forum
-          = icon("fas", "angle-down")
-        nav.dropdown.dropdown--design-01[data-dropdown-list="logo"]
-          ul.dropdown-catalog
-            li
-              = link_to "#", "Home Page"
-            li
-              = link_to "#", "Single Topic Page"
-            li
-              = link_to "#", "Sign up Page"
-            li
-              = link_to "#", "Create Topic Page"
       .header-search
         form[action="http://www.azyrusthemes.com/forum2/#"]
           label
@@ -25,23 +14,7 @@ header
         .header-search-btn[data-dropdown-btn="search"]
           |  Topics
           = icon("fas", "angle-down")
-      .header-menu
-        .header-menu-btn[data-dropdown-btn="menu"]
-          |  Latest Topics
-          = icon("fas", "bars")
         nav.dropdown.dropdown--design-01[data-dropdown-list="menu"]
-          div
-            ul.dropdown-catalog.row
-              li.col-xs-6
-                = link_to "New"
-              li.col-xs-6
-                = link_to "Unread"
-              li.col-xs-6
-                = link_to "Groups"
-              li.col-xs-6
-                = link_to "Users"
-              li.col-xs-6
-                = link_to "Tags"
           div
             h3
               | Categories
@@ -62,38 +35,45 @@ header
                 = link_to "", class: "category"
                   i.bg-5dd39e
                   | Random
-      .header-notification
-        .header-notification-btn[data-dropdown-btn="notification"]
-          = icon "fas", "bell"
-          span
-            | 6
-        .dropdown.dropdown--design-01[data-dropdown-list="notification"]
-          div
-            = link_to "#" do
-              p
-                | Roswell . 16 feb, 17
-                span
-                  | Which movie have you watched recently?
-            = link_to "#" do
-              p
-                | Roswell . 16 feb, 17
-                span
-                  | Which movie have you watched recently?
+      - if current_user
+        .header-notification
+          .header-notification-btn[data-dropdown-btn="notification"]
+            = icon "fas", "bell"
             span
+              | 6
+          .dropdown.dropdown--design-01[data-dropdown-list="notification"]
+            div
               = link_to "#" do
-                | view older notifications...
-      .header-user
-        .header-user-btn[data-dropdown-btn="user"]
-          = image_tag "A.svg", alt: "avatar" do
-            |  Tran Manh Hong
-          = icon "fas", "angle-down"
-        nav.dropdown.dropdown--design-01[data-dropdown-list="user"]
-          div
-            ul.dropdown-catalog
-              li
-                = link_to "Dashboard", "#"
-              li
-                = link_to "Logout", "#"
-    .header-offset-btn
-      = link_to "#" do
-        = image_tag "New_Topic.svg", alt:"New Topic"
+                p
+                  | Roswell . 16 feb, 17
+                  span
+                    | Which movie have you watched recently?
+              = link_to "#" do
+                p
+                  | Roswell . 16 feb, 17
+                  span
+                    | Which movie have you watched recently?
+              span
+                = link_to "#" do
+                  | view older notifications...
+        .header-user
+          .header-user-btn.dropdown-btn--open[data-dropdown-btn="user"]
+            = image_tag "A.svg", alt: "avatar" do
+            = link_to current_user.full_name, "#"
+            = icon "fas", "angle-down"
+          nav.dropdown.dropdown--design-01[data-dropdown-list="user"]
+            div
+              ul.dropdown-catalog
+                - unless current_user.normal?
+                  li
+                    = link_to "Manager Page", managers_root_path
+                li
+                  = link_to "Logout", destroy_user_session_path, method: :delete
+      - else
+        .header-menu-btn
+          .signin-btn
+            = link_to "Signin", new_user_session_path, class: "btn"
+    - if current_user
+      .header-offset-btn
+        = link_to "#" do
+          = image_tag "New_Topic.svg", alt:"New Topic"
