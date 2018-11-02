@@ -2132,7 +2132,7 @@ select {
     }
 
     img {
-      width: 54px;
+      width: 30px;
     }
 
   }
@@ -2140,8 +2140,8 @@ select {
 }
 
 .signup-head {
-  margin-top: 48px;
-  margin-bottom: 46px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   text-align: center;
   flex-direction: column;
   align-items: center;
@@ -2168,7 +2168,7 @@ select {
     width: 100%;
     max-width: 236px;
     margin: 0 auto;
-    padding-top: 34px;
+    padding-top: 15px;
     border-top: solid 1px #dadde1;
   }
 
@@ -2203,6 +2203,10 @@ select {
 
 .signup-checkbox {
   margin-bottom: 32px;
+
+  span {
+    margin-left: 5px
+  }
 }
 
 .signup-label {
@@ -3252,12 +3256,12 @@ select {
   }
 
   .signup-main {
-    padding-top: 110px;
+    padding-top: 20px;
   }
 
   .signup-logo {
     a {
-      font-size: 35px;
+      font-size: 25px;
       img {
         margin-right: 30px;
       }
@@ -3290,7 +3294,7 @@ select {
   }
 
   .signup-header {
-    padding: 56px 0 10px;
+    padding: 10px 0 10px;
     p {
       margin: 0 15px 0 0;
     }

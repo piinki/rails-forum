@@ -1,0 +1,43 @@
+.signup
+  header.signup-header
+    .container
+      .signup-header-content
+        p
+          | Already have an account?
+        = link_to "Sign In", new_user_session_path, class: "btn"
+  main.signup-main
+    .container
+      .signup-container
+        .signup-logo
+          a[href="#"]
+            = image_tag "Logo_Forum.svg", alt: "log"
+            | Unity
+        .signup-head
+          h3
+            | Create a New Unity Account
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .signup-form
+            = devise_error_messages!
+            .row[data-visible="desktop"]
+              .col-md-6
+                .signup-section
+                  = f.label :first_name, class: "signup-label"
+                  = f.text_field :first_name, class: "form-control", id: "first-name"
+              .col-md-6
+                .signup-section
+                  = f.label :last_name, class: "signup-label"
+                  = f.text_field :last_name, class: "form-control", id: "last-name"
+            .signup-section
+              = f.label :email, class: "signup-label"
+              = f.text_field :email, class: "form-control", id: "email"
+            .signup-section
+              = f.label :password, class: "signup-label"
+              = f.password_field :password, class: "form-control", id: "password"
+            .signup-section
+              = f.label :password_confirmation, class: "signup-label"
+              = f.password_field :password_confirmation, class: "form-control", id: "password_confirmation"
+            = f.submit "Create New Account", class: "signup-btn-create btn btn--type-02"
+
+  footer.signup-footer
+    .container
+      .signup-footer-content

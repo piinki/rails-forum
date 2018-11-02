@@ -4,3 +4,6 @@ vi:
     language:
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
+  errors:
+    messages:
+      not_saved: "Không tạo được tài khoản"

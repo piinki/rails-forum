@@ -4,3 +4,6 @@ en:
     language:
       en: "English"
       vi: "Vietnamese"
+  errors:
+    messages:
+      not_saved: "Cannot do registration"

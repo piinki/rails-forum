@@ -1,0 +1,17 @@
+vi:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "đừng để trống"
+              invalid: "không đúng format rùi nhé. Xem hướng dẫn trên mạng đi rồi quay lại."
+            password:
+              blank: "đừng để trống"
+            first_name:
+              blank: "không có họ à mà để trống"
+            last_name:
+              blank: "có không vậy ?"
+            password_confirmation:
+              confirmation: "không khớp với password phía trên"

@@ -12,7 +12,9 @@
           h3
             | Đăng Nhập Đi Má
           p
-            | Không có tài khoản thì đăng ký ở đây nhé.
+            | Không có tài khoản thì đăng ký ở
+            = link_to " đây", signup_path
+            |  nhé.
         .login-form
           = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
             .login-section
@@ -25,4 +27,3 @@
               = f.password_field :password, autocomplete: "off", \
                 class: "form-control", placeholder: "Enter Password", required: true
             = f.submit "Login", class: "login-btn-create btn btn--type-02"
-= render "devise/shared/links"

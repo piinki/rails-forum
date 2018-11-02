@@ -1,0 +1,20 @@
+// scss-lint:disable all
+@import 'colors';
+
+.signup-form {
+  #error_explanation {
+    margin-bottom: 10px;
+
+    h2 {
+      font-size: 14px;
+      display: none;
+    }
+
+    ul > li {
+      color: $white;
+      padding: 2px 5px;
+      background-color: #ff7272;
+      margin-bottom: 3px;
+    }
+  }
+}
