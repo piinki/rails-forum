@@ -1,0 +1,17 @@
+
+= form_for [:managers, category] do |f|
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title Create Category
+        button.close data-dismiss="modal" type="button"  ×
+      .modal-body
+        = render "shared/error_messages", object: f.object
+        .form-group
+          = f.label :title
+          = f.text_field :title, class: "form-control"
+        .form-group
+          = f.label "Tags"
+          = text_field_tag :tags, nil, class: "form-control", data: {role: "tagsinput"}
+      .modal-footer
+        = f.submit "Save", class:"btn btn-success"

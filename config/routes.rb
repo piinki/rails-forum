@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     namespace :managers do
       root "dashboard#index"
+      resources :categories
     end
 
     # For demo ui

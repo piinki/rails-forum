@@ -4,7 +4,7 @@
 
 Một trang forum với các chức năng cơ bản. Có các chức năng cơ bản như cho phép user tạo thread, post, vv.
 
-## Các loại user 
+## Các loại user
 
 Gồm `người dùng`, `moderator` và `admin`.
 `người dùng` là các user thông thường, tự đăng kí qua email.

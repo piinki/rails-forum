@@ -45,8 +45,13 @@ module BaseAPI
         raise APIError::Unauthenticated unless current_user && UserToken.verify(access_token_header)
       end
 
+      def authorize_admin!
+        authenticate!
+        raise APIError::Unauthorized unless current_user.admin?
+      end
+
       def current_user
-        @current_user ||= EmployeeToken.find_by_token(access_token_header)&.employee
+        @current_user ||= UserToken.find_by_token(access_token_header)&.user
       end
 
       def access_token_header

@@ -1,0 +1,16 @@
+.manager-category-index
+  .row.purchace-popup
+    .col-12
+      span.d-block.d-md-flex.align-items-center
+        a.btn.ml-auto.download-button.d-none.d-md-block[href="https://github.com/BootstrapDash/StarAdmin-Free-Bootstrap-Admin-Template" target="_blank"]
+          | Download Free Version
+        a.btn.purchase-button.mt-4.mt-md-0[href="https://www.bootstrapdash.com/product/star-admin-pro/" target="_blank"]
+          | Upgrade To Pro
+  - if @categories
+    = render "table_categories", categories: @categories
+
+
+  = link_to "javascript:;", class: "btn-create-circle", data: {toggle: "modal", target: "#myModal"} do
+    = icon "fas", "plus"
+  #myModal.modal
+    = render "form_modal", category: @new_category
