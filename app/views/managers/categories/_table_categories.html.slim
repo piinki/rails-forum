@@ -1,0 +1,27 @@
+.row.col-lg-12.grid-margin.stretch-card
+  .card
+    .card-body
+      h4.card-title
+        | List category
+      .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th
+                |  Category Name
+              th
+                |  Tags
+              th
+                |  Topics
+              th
+                |  Action
+          tbody
+            - categories.each do |category|
+              tr
+                td.py-1
+                  = category.title
+                td
+                  = category.tags.size
+                td
+                  = category.topics.size
+                td

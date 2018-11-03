@@ -7,3 +7,15 @@ en:
   errors:
     messages:
       not_saved: "Cannot do registration"
+  api_error:
+    wrong_email_password: "wrong email password"
+    unauthorized: "unauthorized"
+    unauthenticated: "unauthenticated"
+    missing_params: "%{params} is missing"
+    invalid_params: "Validation failed: %{params} is invalid"
+    taken_params: "Validation failed: %{params} has already been taken"
+    invalid_id: "Couldn't find %{model} with 'id'=%{id}"
+    empty_params: "%{params} is empty"
+    blank_params: "Validation failed: %{params} can't be blank"
+    must_exist: "Validation failed: %{model} must exist"
+

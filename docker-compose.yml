@@ -1,0 +1,28 @@
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+      args:
+        MYSQL_HOST: ${MYSQL_HOST}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 3000:3000
+    command: rails s
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - .:/myapp:cached
+    depends_on:
+      - db
+    env_file: .env
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db/mysql:/var/lib/mysql:cached
+      - ./config/docker/mysql/conf.d:/etc/mysql/conf.d:cached
+    env_file: .env
+    ports:
+      - "3306:3306"

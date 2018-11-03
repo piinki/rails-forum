@@ -22,14 +22,15 @@ group :development, :test do
   gem "rspec-collection_matchers"
   gem "factory_bot"
   gem "database_cleaner"
-  gem 'bullet'
   gem "faker"
+  gem "uniform_notifier"
 end
 
 group :development do
   gem "listen", '>= 3.0.5', '< 3.2'
   gem "spring"
   gem "spring-watcher-listen", '~> 2.0.0'
+  gem "bullet"
 end
 
 group :test do
