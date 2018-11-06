@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  mount Ckeditor::Engine => "/ckeditor"
   mount API => "/"
 
   scope "(:locale)", locale: /en|vi/ do
@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     root "demoui#home"
 
     # For admin panel
-
     namespace :managers do
       root "dashboard#index"
       resources :categories

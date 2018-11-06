@@ -10,8 +10,6 @@
               th
                 |  Category Name
               th
-                |  Tags
-              th
                 |  Topics
               th
                 |  Action
@@ -21,7 +19,15 @@
                 td.py-1
                   = category.title
                 td
-                  = category.tags.size
-                td
                   = category.topics.size
                 td
+                  .btn-group.dropdown
+                    button.btn.btn-success.dropdown-toggle.btn-sm[type="button" data-toggle="dropdown"]
+                      |  Action
+                    .dropdown-menu
+                      = link_to edit_managers_category_path(id: category.id) , class: "dropdown-item" do
+                        = icon "fas", "fa-edit"
+                        | Edit
+                      = link_to managers_category_path(id: category.id), class: "dropdown-item", method: :delete, data: {confirm: "Are you sure"} do
+                        = icon "fas", "fa-trash"
+                        | Delete

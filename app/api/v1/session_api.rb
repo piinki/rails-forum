@@ -21,9 +21,6 @@ class V1::SessionAPI < Grape::API
     desc "Log out"
     delete do
       token = UserToken.find_by token: access_token_header
-
-      binding.pry
-      
       token ? token.destroy : raise(APIError::Unauthenticated)
       { message: I18n.t("log_out") }
     end

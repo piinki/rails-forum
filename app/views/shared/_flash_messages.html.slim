@@ -1,0 +1,3 @@
+- flash.each do |message_type, message|
+  div class="autohide alert alert-#{message_type.gsub('alert', 'warning')} text-center"
+    = message.html_safe

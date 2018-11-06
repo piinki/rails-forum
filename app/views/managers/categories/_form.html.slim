@@ -1,0 +1,24 @@
+= form_for [:managers, category] do |f|
+  = render "shared/error_messages", object: f.object
+  .row
+    .form-group.col-md-6
+      = f.label :permission_view, class: "d-block"
+      = collection_radio_buttons :category, :permission_view, Category.permission_views, :first, :first do |b|
+        = b.label class: "container-radio"
+          span #{b.object.first}
+          = b.radio_button
+          span.checkmark
+    .form-group.col-md-6
+      = f.label :status, class: "d-block"
+      = collection_radio_buttons :category, :status, Category.statuses, :first, :first do |b|
+        = b.label class: "container-radio"
+          span #{b.object.first}
+          = b.radio_button
+          span.checkmark
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :description
+    = f.cktext_area :description, class: "form-control"
+  = f.submit "Save", class:"btn btn-success"
