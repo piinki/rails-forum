@@ -13,5 +13,8 @@ html
       = render "managers/layouts/sidebar"
       .main-panel
         .content-wrapper
+          .row.purchace-popup
+            .col-12
+              = render "shared/flash_messages"
           = yield
         =render "managers/layouts/footer"

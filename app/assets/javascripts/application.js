@@ -14,5 +14,6 @@
 //= require i18n/translations
 //= require rails-ujs
 //= require activestorage
+//= require ckeditor/init
 //= require jquery
 //= require layout
