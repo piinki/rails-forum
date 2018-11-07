@@ -40,3 +40,4 @@ public/javascripts/i18n.js
 app/assets/javascripts/i18n/translations.js
 public/javascripts/translations.js
 public/assets/
+db/mysql/

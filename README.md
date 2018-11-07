@@ -42,3 +42,17 @@ Có thể xem được các thông tin thống kê, ví dụ:
 - **post** được quan tâm nhất, nhiều upvote nhất
 - số `người dùng` đang online
 - vv
+
+## Lệnh Docker
+
+```
+build:
+	docker-compose build
+start:
+	docker-compose up -d
+
+stop:
+	docker-compose down
+rake comman:
+	docker-compose run --rm server <Lenh Rail VD: rails c>
+```

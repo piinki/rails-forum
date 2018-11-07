@@ -3,16 +3,16 @@
 FROM ruby:2.5.1
 
 
-ARG MYSQL_HOST=localhost
+ARG MYSQL_HOST
 ARG MYSQL_ROOT_PASSWORD
 
 ENV MYSQL_HOST=$MYSQL_HOST
 ENV MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
 # RUN | Chay lenh khi build image
 # Cac package can thiet
-
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update -qq && apt-get install -y \
-      build-essential mysql-client libv8-dev \
+      build-essential mysql-client libv8-dev nodejs\
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
 
@@ -29,6 +29,5 @@ COPY Gemfile* ./
 RUN bundle install
 
 COPY . /myapp
-COPY /myapp/application.yml.sample /myapp/application.yml
 
 EXPOSE 3000
