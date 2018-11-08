@@ -512,7 +512,7 @@ select {
   outline: none;
 }
 
-.custom-select {
+.custom-select-d {
   position: relative;
 
   select {
@@ -1923,7 +1923,7 @@ select {
     box-shadow: none;
   }
 
-  .custom-select {
+  .custom-select-d {
     display: block;
     &::after {
       right: 20px;
@@ -2910,7 +2910,7 @@ select {
     padding: 0 40px 0 15px;
   }
 
-  .custom-select {
+  .custom-select-d {
     &::after {
       right: 15px;
     }
@@ -3215,7 +3215,7 @@ select {
       font-size: 16px;
     }
 
-    .custom-select {
+    .custom-select-d {
       select {
         height: 48px;
         padding: 8px 20px;
@@ -3499,7 +3499,7 @@ select {
     font-size: 13px;
   }
 
-  .custom-select {
+  .custom-select-d {
     &::after {
       right: 12px;
     }
@@ -3832,7 +3832,7 @@ select {
       font-size: 14px;
     }
 
-    .custom-select {
+    .custom-select-d {
       select {
         height: 38px;
         padding: 8px 15px;

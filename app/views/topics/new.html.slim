@@ -1,0 +1,11 @@
+= provide :title, t("topic.new.title")
+.topic-new
+  div
+    .create
+      .create-head
+        .create-title
+          = image_tag "New_Topic.svg", alt: "New topic"
+          | Create New Topic
+        span
+          | Forum Guidelines
+      = render "form", topic: @topic, categories: @categories

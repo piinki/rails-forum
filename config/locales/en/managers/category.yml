@@ -1,0 +1,9 @@
+en:
+  managagers:
+    category:
+      new:
+        title: "Create topic"
+      edit:
+        title: "Edit topic | %{topic_title}"
+      index:
+        title: "Topics"

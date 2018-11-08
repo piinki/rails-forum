@@ -1,0 +1,28 @@
+div class="posts-item #{class_post}"
+  .posts-section-left
+    .posts-topic
+      .posts-content
+        = link_to topic_path(topic) do
+          h3
+            = topic.title
+    .posts-category
+      = link_to "#", class: "category" do
+        i.bg-368f8b
+        = topic.category.title
+  .posts-section-right
+    .posts-users
+      div
+        = link_to "#", class: "avatar" do
+          = image_tag "B.svg"
+      div
+        = link_to "#", class: "avatar" do
+          = image_tag "A.svg"
+      div
+        = link_to "#", class: "avatar" do
+          = image_tag "C.svg"
+    .posts-replies
+      | 31
+    .posts-views
+      | 14.5k
+    .posts-activity
+      | 13d

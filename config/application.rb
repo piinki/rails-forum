@@ -17,7 +17,7 @@ module RorCourse1
     config.time_zone = "Hanoi"
     config.api_only = false
     config.middleware.use I18n::JS::Middleware
-    I18n.default_locale = :vi
+    I18n.default_locale = :en
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**/*.{rb,yml}").to_s]
     config.autoload_paths << Rails.root.join("lib")
     config.eager_load_paths << Rails.root.join("lib")

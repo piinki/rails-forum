@@ -1,0 +1,39 @@
+.topic
+  .topic-head
+    .topic-avatar
+      = link_to "#", class: "avatar" do
+        = image_tag "B.svg", alt: "avatar"
+    .topic-caption
+      .topic-name
+        = link_to post.user_full_name, "#"
+      .topic-date
+
+        = icon "fas", "clock"
+        = l post.created_at, format: :short
+        = link_to "Edit", edit_topic_path(post.topic)
+  .topic-content
+    .topic-text id="post-content-#{post.id}"
+      = post.content.html_safe
+    .topic-footer
+      .topic-footer-likes
+        div
+          = link_to "#" do
+            = icon "fas", "chevron-circle-up"
+          span
+            | 201
+        div
+          = link_to "#" do
+            = icon "fas", "chevron-circle-down"
+          span
+            | 100
+      .topic-footer-share
+        div[data-visible="desktop"]
+          a[href="#"]
+            = icon "fas", "share"
+          a[href="#"]
+            = icon "fas", "flag"
+        div[data-visible="mobile"]
+          a[href="#"]
+            = icon "fas", "share"
+        a.quote-post.prevent-load[href="#" data-post-id="post-content-#{post.id}"]
+          = icon "fas", "quote-right"
