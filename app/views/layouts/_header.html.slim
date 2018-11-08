@@ -2,10 +2,11 @@ header
   .header
     .container
       .header-logo
-        h1
-          = image_tag "Logo_Forum.svg", alt: "logo", data: {"dropdown-btn": "logo"}
-        .header-logo-btn
-          |  Forum
+        = link_to root_path do
+          h1
+            = image_tag "Logo_Forum.svg", alt: "logo", data: {"dropdown-btn": "logo"}
+          .header-logo-btn
+            |  Forum
       .header-search
         form[action="http://www.azyrusthemes.com/forum2/#"]
           label
@@ -75,5 +76,5 @@ header
             = link_to "Signin", new_user_session_path, class: "btn"
     - if current_user
       .header-offset-btn
-        = link_to "#" do
+        = link_to new_topic_path do
           = image_tag "New_Topic.svg", alt:"New Topic"

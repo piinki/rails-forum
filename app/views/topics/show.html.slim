@@ -1,0 +1,18 @@
+= provide :title, @topic.title
+.topic-show
+  .topics
+    .topics-heading
+      h2.topics-heading-title
+        = @topic.title
+      .topics-heading-info
+        = link_to "#", class: "category" do
+          i.bg-3ebafa
+          = @topic.category.title
+        .tags
+          = link_to "gaming", "#", class: "bg-4f80b0"
+          = link_to "nature", "#", class: "bg-424ee8"
+          = link_to "entertainment", "#", class: "bg-36b7d7"
+    .topics-body
+      .topics-content
+        = render @topic.posts
+        = render "reply_form"

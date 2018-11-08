@@ -17,3 +17,4 @@
 //= require ckeditor/init
 //= require jquery
 //= require layout
+//= require custom

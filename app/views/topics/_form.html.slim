@@ -1,0 +1,19 @@
+= form_for topic do |f|
+  = render "shared/error_messages", object: f.object
+  .create-section
+    = f.label :title, class: "create-label"
+    = f.text_field :title, class: "form-control", placeholder: "Add here"
+  .row
+    .col-md-12
+      .create-section
+        = f.label :category_id, class: "create-label"
+        label.custom-select-d
+          = f.select :category_id, options_from_collection_for_select(categories, :id, :title, f.object.category_id), \
+            {include_blank: "chon category"},  required: true
+  .create-section.create-textarea
+    = f.fields_for :posts do |ff|
+      = ff.label :content, class: "create-label"
+      = ff.cktext_area :content, class: "form-control"
+  .create-footer
+    = link_to "Cancel", "#", class: "btn create-btn-cansel"
+    = f.submit "Create Topic", class: "create-btn-create btn btn--type-02"

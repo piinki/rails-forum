@@ -1,9 +1,14 @@
 en:
-  app_name: "Ap"
+  app_name: "Forum"
   application:
     language:
       en: "English"
       vi: "Vietnamese"
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
   errors:
     messages:
       not_saved: "Cannot do registration"
@@ -18,4 +23,3 @@ en:
     empty_params: "%{params} is empty"
     blank_params: "Validation failed: %{params} can't be blank"
     must_exist: "Validation failed: %{model} must exist"
-

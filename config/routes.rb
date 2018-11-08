@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     delete "signout", to: "sessions#destroy", as: :destroy_user_session
     get "signup", to: "registrations#new"
   end
-  root "demoui#home"
-
+  root "topics#index"
+  resources :topics do
+    resources :posts
+  end
   # For admin panel
   namespace :managers do
     root "dashboard#index"

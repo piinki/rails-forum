@@ -16,6 +16,9 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];
-
+	console.log('hehe')
 	config.removeButtons = 'Print,Preview,NewPage,Save,Templates,PasteFromWord,Scayt,Form,Checkbox,Radio,Textarea,TextField,Select,Button,ImageButton,HiddenField,SelectAll,Replace,Outdent,Indent,BidiLtr,BidiRtl,Language,Anchor,Flash,PageBreak,About,CreateDiv,CopyFormatting,RemoveFormat';
+	config.filebrowserImageBrowseLinkUrl = "uploads/ckeditor/attachments/";
+  config.filebrowserImageBrowseUrl = "uploads/ckeditor/attachments/";
+  config.filebrowserImageUploadUrl = "uploads/ckeditor/attachments/";
 };
