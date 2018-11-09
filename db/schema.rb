@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_142724) do
+ActiveRecord::Schema.define(version: 2018_11_09_123535) do
 
   create_table "banner_functions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_142724) do
     t.integer "down_vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_root"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -1,4 +1,4 @@
-.topic
+.topic id="post-bookmark-#{post.id}"
   .topic-head
     .topic-avatar
       = link_to "#", class: "avatar" do
@@ -6,11 +6,11 @@
     .topic-caption
       .topic-name
         = link_to post.user_full_name, "#"
+        .post-count
+          | Post: 3
       .topic-date
-
         = icon "fas", "clock"
         = l post.created_at, format: :short
-        = link_to "Edit", edit_topic_path(post.topic)
   .topic-content
     .topic-text id="post-content-#{post.id}"
       = post.content.html_safe
@@ -28,12 +28,21 @@
             | 100
       .topic-footer-share
         div[data-visible="desktop"]
-          a[href="#"]
+          a[href="#reply-form"]
             = icon "fas", "share"
           a[href="#"]
             = icon "fas", "flag"
         div[data-visible="mobile"]
           a[href="#"]
             = icon "fas", "share"
-        a.quote-post.prevent-load[href="#" data-post-id="post-content-#{post.id}"]
+        a.quote-post.prevent-load[href="#" data-post-id="post-content-#{post.id}" data-name="#{post.user_full_name}" data-anchor="#{post.id}"]
           = icon "fas", "quote-right"
+        - if post.user == current_user
+          = link_to topic_post_path(post.topic, post), method: :delete, data: {confirm: "Are you sure"} do
+            = icon "fas", "trash"
+          - if post.is_root?
+            = link_to edit_topic_path(post.topic) do
+              = icon "fas", "pencil-alt"
+          - else
+            = link_to edit_topic_post_path(post.topic, post) do
+              = icon "fas", "pencil-alt"

@@ -15,4 +15,13 @@
     .topics-body
       .topics-content
         = render @topic.posts
-        = render "reply_form"
+        .topic#reply-form
+          = form_for [@topic, @topic.posts.build] do |f|
+            = render "shared/error_messages", object: f.object
+            = f.hidden_field :topic_id, value: @topic.id
+            .create-section.create-textarea
+              = f.label "Rely post", class: "create-label"
+              = f.cktext_area :content, class: "form-control", id: "reply_form"
+            .create-footer
+              = link_to t("buttons.cancel"), "#", class: "btn create-btn-cansel"
+              = f.submit t("buttons.create_reply"), class: "create-btn-create btn btn--type-02"

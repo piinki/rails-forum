@@ -669,6 +669,9 @@ select {
   }
 
   >div {
+    padding-left: 0;
+    padding-right: 0;
+
     &:not(.dropdown-user) {
       &:not(:first-of-type) {
         margin-top: 26px;
@@ -692,7 +695,14 @@ select {
 .dropdown-catalog {
   margin-bottom: -4px;
   li {
-    margin-bottom: 4px;
+    padding: 5px 10px 5px 10px;
+
+    &:hover {
+      background-color: #f7d4ad;
+      a {
+        color: #333333
+      }
+    }
   }
 
 }
@@ -1361,7 +1371,7 @@ select {
 .topic.topic--answer {
   background-color: $background-color-10;
   border: none;
-  border-left: solid 2px #e9ecee;
+  border-left: solid 2px #aaacad;
 }
 
 .topic.topic--selected {
@@ -1433,7 +1443,7 @@ select {
 .topic-text {
   >p {
     margin: 0;
-    color: $color-4;
+    color: #333;
     line-height: 1.5;
   }
 
@@ -3059,11 +3069,11 @@ select {
   }
 
   .topics {
-    margin-top: 32px;
+    margin-top: 20px;
   }
 
   .topics-heading {
-    margin-bottom: 38px;
+    margin-bottom: 20px;
   }
 
   .topics-heading-title {
@@ -3102,7 +3112,7 @@ select {
   }
 
   .topic {
-    padding: 30px 30px;
+    padding: 20px;
   }
 
   .topic.topic--comment {
@@ -3110,7 +3120,7 @@ select {
   }
 
   .topic-head {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
   }
 
   .topic-avatar {
@@ -3122,10 +3132,12 @@ select {
   }
 
   .topic-content {
-    padding-left: 62px;
+    padding-top: 15px;
   }
 
   .topic-text {
+    padding-left: 10px;
+
     >* {
       &:not(:first-child) {
         margin-top: 24px;
@@ -3162,7 +3174,7 @@ select {
   }
 
   .topic-footer {
-    padding-top: 30px;
+    padding-top: 15px;
     margin-top: 38px;
   }
 
@@ -3321,14 +3333,6 @@ select {
   }
 
   .header {
-    >.container {
-      >div {
-        padding-top: 30px;
-        padding-bottom: 30px;
-      }
-
-    }
-
     [data-dropdown-list="logo"] {
       min-width: 200px;
     }
@@ -3350,7 +3354,7 @@ select {
     }
 
     [data-dropdown-list="user"] {
-      min-width: 300px;
+      min-width: 200px;
       left: auto;
       right: 0;
     }

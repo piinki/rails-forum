@@ -23,3 +23,11 @@ en:
     empty_params: "%{params} is empty"
     blank_params: "Validation failed: %{params} can't be blank"
     must_exist: "Validation failed: %{model} must exist"
+  messages:
+    not_found_post: "Cannot found post"
+    not_found_topic: "Cannot found topic"
+  buttons:
+    save: "Save"
+    cancel: "Cancel"
+    create_reply: "Create reply"
+    create_topic: "Create topic"

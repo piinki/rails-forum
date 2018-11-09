@@ -1,0 +1,19 @@
+= provide :title, t("post.edit.title")
+.topic-edit
+  div
+    .create
+      .create-head
+        .create-title
+          = image_tag "New_Topic.svg", alt: "New topic"
+          = t("post.edit.title")
+        span
+          | Forum Guidelines
+      .topic
+        = form_for [@post.topic, @post] do |f|
+          = render "shared/error_messages", object: f.object
+          .create-section.create-textarea
+            = f.label "Rely post", class: "create-label"
+            = f.cktext_area :content, class: "form-control", id: "reply_form"
+          .create-footer
+            = link_to t("buttons.cancel"), topic_path(@post.topic), class: "btn create-btn-cansel"
+            = f.submit t("buttons.save"), class: "create-btn-create btn btn--type-02"

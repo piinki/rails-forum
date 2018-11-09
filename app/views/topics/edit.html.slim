@@ -5,7 +5,7 @@
       .create-head
         .create-title
           = image_tag "New_Topic.svg", alt: "New topic"
-          | Edit Topic
+          = t("topic.edit.title")
         span
           | Forum Guidelines
       = render "form", topic: @topic, categories: @categories

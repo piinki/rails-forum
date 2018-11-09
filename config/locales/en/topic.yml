@@ -6,3 +6,12 @@ en:
       title: "Edit topic | %{topic_title}"
     index:
       title: "Topics"
+    form:
+      reply_post: "Reply post"
+    messages:
+      create_successful: "Create topic successful"
+      create_fail: "Cannot create topic"
+      update_successful: "Edit topic successful"
+      update_fail: "Cannot edit topic"
+      delete_successful: "Delete topic successful"
+      delete_fails: "Cannot delete topic"

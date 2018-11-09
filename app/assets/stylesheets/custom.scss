@@ -1,1 +1,31 @@
 @import 'colors';
+
+.block-quote-from {
+  color: red;
+}
+
+.alert-success {
+  background-color: $success;
+  border: none;
+  color: $white;
+}
+.alert-warning {
+  background-color: $warning;
+  border: none;
+  color: $white;
+}
+.alert-danger {
+  background-color: $danger;
+  border: none;
+  color: $white;
+}
+
+.sidebar-profile {
+  border: 1px solid #f3f4f5;
+  min-height: 100vh;
+  width: 200px;
+}
+
+.profile{
+  background-color: $white;
+}

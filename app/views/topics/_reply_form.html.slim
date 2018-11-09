@@ -1,11 +1,1 @@
-.topic
-  = form_for [@topic, @topic.posts.build] do |f|
-    = render "shared/error_messages", object: f.object
-    = f.hidden_field :topic_id, value: @topic.id
-    = f.hidden_field :topic_id, value: @topic.id
-    .create-section.create-textarea
-      = f.label "Rely post", class: "create-label"
-      = f.cktext_area :content, class: "form-control", id: "reply_form"
-    .create-footer
-      = link_to "Cancel", "#", class: "btn create-btn-cansel"
-      = f.submit "Create Topic", class: "create-btn-create btn btn--type-02"
+

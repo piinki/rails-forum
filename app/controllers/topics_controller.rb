@@ -15,13 +15,12 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new topic_params
     topic.creator = current_user
-    topic.posts.first.user = current_user
     if topic.save
-      flash[:success] = "Create topic successfully"
+      flash[:success] = t "topic.messages.create_successful"
       redirect_to topic_path(topic)
     else
       @categories = Category.all
-      flash[:warning] = "Cannot create topic"
+      flash[:warning] = t "topic.messages.create_fail"
       render :new
     end
   end
@@ -31,21 +30,18 @@ class TopicsController < ApplicationController
   end
 
   def update
-    # binding.pry
     if @topic.update_attributes topic_params
-      flash[:success] = "Edit topic successfully"
+      flash[:success] = t "topic.messages.update_successful"
       redirect_to topic_path(topic)
     else
       @categories = Category.all
-      flash[:warning] = "Cannot edit topic"
+      flash[:warning] = t "topic.messages.update_fail"
       render :edit
     end
   end
 
 
-  def show
-
-  end
+  def show; end
 
   private
 
@@ -55,7 +51,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by id: params[:id]
     return if topic
 
-    flash[:warning] = "Cannot find topic"
+    flash[:warning] = t "messages.not_found_topic"
     redirect_to topics_path
   end
 
