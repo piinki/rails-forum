@@ -12,7 +12,10 @@ $(document).ready(function() {
 
   $(document).on('click', '.quote-post', function (){
     let content = $('#'+$(this).data('post-id')).html();
-    debugger
-    CKEDITOR.instances.reply_form.insertHtml('<blockquote>' + content +'</blockquote>');
+    let author = $(this).data('name');
+    let anchor = $(this).data('anchor');
+    CKEDITOR.instances.reply_form.insertHtml('\
+      <blockquote>\
+        <p class="blockquotefrom">[Quote from <a href="#post-bookmark-' + anchor +'"> #'+ anchor +'</a>] writed by ' + author + '</p>' + content +'</blockquote>&nbsp;');
   });
 });

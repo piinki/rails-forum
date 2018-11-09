@@ -1,0 +1,11 @@
+en:
+  post:
+    edit:
+      title: Reply post
+    messages:
+      create_successful: "Reply successful"
+      create_fail: "Cannot reply"
+      update_successful: "Edit reply successful"
+      update_fail: "Cannot edit reply"
+      delete_successful: "Delete successful"
+      delete_fails: "Cannot delete reply"

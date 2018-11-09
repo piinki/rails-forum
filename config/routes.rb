@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :topics do
     resources :posts
   end
+  resources :profile
   # For admin panel
   namespace :managers do
     root "dashboard#index"
