@@ -13,5 +13,6 @@
  *= require signup
  *= require custom
  *= require topic
+ *= require profile
  *= require_self
  */

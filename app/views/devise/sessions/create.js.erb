@@ -1,6 +1,0 @@
-<% if @result[:success] %>
-  notify('success', '<%=  @result[:message] %>');
-  window.location.href = '<%= current_user.root_path %>';
-<% else %>
-  notify('danger', '<%= @result[:message] %>');
-<% end %>

@@ -20,12 +20,62 @@
   color: $white;
 }
 
-.sidebar-profile {
-  border: 1px solid #f3f4f5;
-  min-height: 100vh;
-  width: 200px;
+.profile {
+  margin-top: 15px;
 }
 
-.profile{
+.left-profile {
   background-color: $white;
+  border: 1px solid #e9ecee;
+  padding: 10px;
+
+  .profile-avatar {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+.right-profile {
+  background-color: $white;
+  border: 1px solid #e9ecee;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.menu-profile {
+  margin-top: 10px;
+  text-align: center;
+
+  li {
+    padding: 4px;
+    border-bottom: 1px dotted #e9ecee;
+    cursor: pointer;
+
+    > a {
+      color: #262a2d;
+    }
+    &:hover {
+      background-color: #fdf4f4;
+    }
+  }
+}
+
+.border-none {
+  border: 0;
+}
+
+.margin-none {
+  margin: 0;
+}
+
+.category-dropdown {
+  left: 400px;
+  min-width: 200px !important;
+}
+
+ul.dropdown-catalog {
+  a {
+    display: block;
+  }
 }
