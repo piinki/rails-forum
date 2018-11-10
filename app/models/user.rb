@@ -8,8 +8,14 @@ class User < ApplicationRecord
   has_many :category_managers, dependent: :destroy
   has_one :user_token, dependent: :destroy
 
+  has_one_attached :avatar
+
+  attr_accessor :current_password
+
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validate :validate_current_password, if: :validate_password?, on: :update
+  validate :validate_same_password, if: :validate_password?, on: :update
 
   def root_path
     routes = Rails.application.routes.url_helpers
@@ -31,5 +37,23 @@ class User < ApplicationRecord
       end
       user
     end
+  end
+
+  private
+
+  def validate_password?
+    !password.blank?
+  end
+
+  def validate_current_password
+    user = User.find_by id: id
+    return if user.valid_password?(current_password)
+    errors.add(:current_password, "is incorrect.")
+  end
+
+  def validate_same_password
+    user = User.find_by id: id
+    return unless user.valid_password?(password)
+    errors.add(:password, "not same old password.")
   end
 end

@@ -9,11 +9,21 @@ Rails.application.routes.draw do
     delete "signout", to: "sessions#destroy", as: :destroy_user_session
     get "signup", to: "registrations#new"
   end
+
   root "topics#index"
   resources :topics do
     resources :posts
   end
-  resources :profile
+
+  resources :categories, only: %i(show)
+
+  resources :profile do
+    collection do
+      get "change_password", to: "profile#change_password"
+      patch "change_password", to: "profile#update_change_password"
+    end
+  end
+
   # For admin panel
   namespace :managers do
     root "dashboard#index"

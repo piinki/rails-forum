@@ -12,30 +12,17 @@ header
           label
             = icon("fas", "search")
             input.form-control[type="search" placeholder="Search all forums"]
-        .header-search-btn[data-dropdown-btn="search"]
-          |  Topics
+        .header-search-btn.dropdown-btn--open[data-dropdown-btn="search"]
+          |  Category
           = icon("fas", "angle-down")
-        nav.dropdown.dropdown--design-01[data-dropdown-list="menu"]
+        nav.dropdown.dropdown--design-01.category-dropdown[data-dropdown-list="menu"]
           div
-            h3
-              | Categories
-            ul.dropdown-catalog.row
-              li.col-xs-6
-                = link_to "", class: "category"
-                  i.bg-f9bc64
-                  | Hobbies
-              li.col-xs-6
-                = link_to "", class: "category"
-                  i.bg-348aa7
-                  | Social
-              li.col-xs-6
-                = link_to "", class: "category"
-                  i.bg-4436f8
-                  | Video
-              li.col-xs-6
-                = link_to "", class: "category"
-                  i.bg-5dd39e
-                  | Random
+            ul.dropdown-catalog
+              - Category.all.each do |cate|
+                = link_to category_path(cate), class: "category"
+                  li.col-xs-6
+                    i.bg-f9bc64
+                    = cate.title
       - if current_user
         .header-notification
           .header-notification-btn[data-dropdown-btn="notification"]
@@ -68,6 +55,8 @@ header
                 - unless current_user.normal?
                   li
                     = link_to "Manager Page", managers_root_path
+                li
+                  = link_to "Profile", profile_index_path
                 li
                   = link_to "Logout", destroy_user_session_path, method: :delete
       - else
