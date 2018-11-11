@@ -8,14 +8,10 @@
         | Topic
       .posts-category
         | Category
-      .posts-users
-        | Users
       .posts-replies
         | Replies
       .posts-views
         | Views
-      .posts-activity
-        | Activity
     .posts-body
-      = render "demoui/thread_pinter"
       = render @topics, class_post: "bg-f2f4f6"
+    = paginate @topics

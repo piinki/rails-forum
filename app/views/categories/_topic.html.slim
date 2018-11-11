@@ -5,12 +5,13 @@ div class="posts-item #{topic_counter.odd? ? "bg-f2f4f6" : ""}"
         = link_to topic_path(topic) do
           h3
             = topic.title
-    .posts-category
-      = link_to "#", class: "category" do
-        i.bg-368f8b
-        = topic.category.title
+    .posts-last-reply
+      .times-reply
+        = distance_of_time_in_words(Time.current, topic.last_post.created_at)
+      .by-reply
+        | &nbsp; by #{link_to topic.last_post.user_full_name, topic_path(topic, anchor: "post-bookmark-#{topic.last_post.id}")}
   .posts-section-right
     .posts-replies
       = topic.posts.size
     .posts-views
-      | 12.1 k
+      | 149

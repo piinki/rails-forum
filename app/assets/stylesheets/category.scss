@@ -1,22 +1,17 @@
 @import 'colors';
-
-.topic-head {
-  border-bottom: 1px solid #ddd;
-}
-
-.topic-index {
+.category-show {
   .posts-section-left {
     min-width: 84%;
     width: 84%;
 
     .posts-topic {
-      min-width: 83%;
-      width: 83%;
+      min-width: 71%;
+      width: 71%;
     }
 
-    .posts-category {
-      min-width: 17%;
-      width: 17%;
+    .posts-last-reply {
+      min-width: 29%;
+      width: 29%;
     }
   }
 
@@ -36,13 +31,13 @@
   }
 
   .posts-topic {
-    min-width: 70%;
-    width: 70%;
+    min-width: 60%;
+    width: 60%;
   }
 
-  .posts-category {
-    min-width: 14%;
-    width: 14%;
+  .posts-last-reply {
+    min-width: 24%;
+    width: 24%;
   }
 
   .posts-replies {

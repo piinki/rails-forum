@@ -1,4 +1,4 @@
-@import 'colors';
+@import "colors";
 
 .block-quote-from {
   color: red;
@@ -6,17 +6,19 @@
 
 .alert-success {
   background-color: $success;
-  border: none;
+  border: 0;
   color: $white;
 }
+
 .alert-warning {
   background-color: $warning;
-  border: none;
+  border: 0;
   color: $white;
 }
+
 .alert-danger {
   background-color: $danger;
-  border: none;
+  border: 0;
   color: $white;
 }
 
@@ -55,6 +57,7 @@
     > a {
       color: #262a2d;
     }
+
     &:hover {
       background-color: #fdf4f4;
     }
@@ -77,5 +80,90 @@
 ul.dropdown-catalog {
   a {
     display: block;
+  }
+}
+
+.color-default {
+  color: #212529;
+
+  &:visited {
+    color: #212529;
+  }
+
+  &:link {
+    color: #064788;
+    text-decoration: underline;
+  }
+}
+
+nav.pagination {
+  margin-top: 5px;
+  justify-content: center;
+
+  > span {
+    border: 1px solid #e9ecee;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 0 6px;
+
+    &:hover {
+      background-color: #fdf4f4;
+    }
+  }
+}
+
+.topic-heading-content {
+  background-color: $white;
+  border: 1px solid #f3f5f5;
+  padding: 20px;
+  position: relative;
+}
+
+.topic-btn-option {
+  color: $color-13;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: -30px;
+
+  &:hover {
+    color: $background-color-9;
+  }
+}
+
+.pin-topic {
+  color: $background-color-13;
+  display: inline;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.dropdown-hover {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+
+  .dropdown-hover-content {
+    display: none;
+    position: absolute;
+    top: -20px;
+    right: 13px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+
+  &:hover {
+    .dropdown-hover-content {
+      display: block;
+    }
+  }
+}
+
+a {
+  &:link {
+    color: #066392;
   }
 }

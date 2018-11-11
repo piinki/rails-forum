@@ -161,10 +161,6 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    gon (6.2.0)
-      actionpack (>= 3.0)
-      multi_json
-      request_store (>= 1.0)
     grape (1.1.0)
       activesupport
       builder
@@ -239,6 +235,8 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     puma (3.12.0)
+    pundit (2.0.0)
+      activesupport (>= 3.0.0)
     rack (2.0.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -273,8 +271,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    request_store (1.4.1)
-      rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -384,7 +380,6 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass (~> 5.3.1)
-  gon
   grape
   grape-active_model_serializers
   hashie
@@ -399,6 +394,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   pry
   puma (~> 3.11)
+  pundit
   rack-cors
   rails (~> 5.2.1)
   rspec

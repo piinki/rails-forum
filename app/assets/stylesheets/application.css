@@ -14,5 +14,6 @@
  *= require custom
  *= require topic
  *= require profile
+ *= require category
  *= require_self
  */
