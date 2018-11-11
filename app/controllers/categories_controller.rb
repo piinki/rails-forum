@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: :show
-  
+
   def show
-    @topics = category.topics
+    @topics = category.topics.page(params[:page]).per Settings.per_page.topic
   end
 
   private

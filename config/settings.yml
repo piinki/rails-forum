@@ -42,3 +42,5 @@ user_tokens:
     secure_length: 64
   expires_in: <%= 30.days %>
   short_expires_in: <%= 1.days %>
+per_page:
+  topic: 10

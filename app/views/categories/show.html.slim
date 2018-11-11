@@ -1,21 +1,17 @@
 = provide :title, "Topic in category"
 
 = render "topics/nav"
-.topic-index
+.category-show
   .posts
     .posts-head
       .posts-topic
         | Topic
-      .posts-category
-        | Category
-      .posts-users
-        | Users
+      .posts-last-reply
+        | Last reply
       .posts-replies
         | Replies
       .posts-views
         | Views
-      .posts-activity
-        | Activity
     .posts-body
-      = render "demoui/thread_pinter"
-      = render @topics
+      = render partial: "categories/topic", collection: @topics
+      = paginate @topics
