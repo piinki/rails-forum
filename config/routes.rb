@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   end
 
   root "topics#index"
+
+  patch "topics/:id/pin", to: "topics#pin", as: :topic_pin
+  patch "topics/:id/unpin", to: "topics#unpin", as: :topic_unpin
+
   resources :topics do
     resources :posts
   end

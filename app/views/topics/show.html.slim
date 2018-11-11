@@ -2,26 +2,48 @@
 .topic-show
   .topics
     .topics-heading
-      h2.topics-heading-title
-        = @topic.title
-      .topics-heading-info
-        = link_to "#", class: "category" do
-          i.bg-3ebafa
-          = @topic.category.title
-        .tags
-          = link_to "gaming", "#", class: "bg-4f80b0"
-          = link_to "nature", "#", class: "bg-424ee8"
-          = link_to "entertainment", "#", class: "bg-36b7d7"
+      .topic-heading-content
+        h2.topics-heading-title
+          - if @topic.pin_at
+            .pin-topic
+              = icon "fas", "thumbtack"
+          = @topic.title
+        - if policy(@topic).edit?
+          .dropdown-hover
+            = icon "fas", "ellipsis-h", class: "topic-btn-option"
+            .dropdown-hover-content
+              ul
+                - if current_user.admin? || current_user.moderator?
+                  li
+                    - unless @topic.pin_at
+                      = link_to "Pin topic", topic_pin_path(@topic), method: :patch
+                    - else
+                      = link_to "Unpin topic", topic_unpin_path(@topic), method: :patch
+                li
+                  = link_to "edit", edit_topic_path(@topic)
+                li
+                  = link_to "Delete topic", topic_path(@topic), method: :delete, data: {confirm: "Are you sure"}
+        .topics-heading-info
+          = link_to category_path(@topic.category), class: "category" do
+            i.bg-3ebafa
+            = @topic.category.title
+          .tags
+
     .topics-body
       .topics-content
         = render @topic.posts
         .topic#reply-form
-          = form_for [@topic, @topic.posts.build] do |f|
-            = render "shared/error_messages", object: f.object
-            = f.hidden_field :topic_id, value: @topic.id
-            .create-section.create-textarea
-              = f.label "Rely post", class: "create-label"
-              = f.cktext_area :content, class: "form-control", id: "reply_form"
-            .create-footer
-              = link_to t("buttons.cancel"), "#", class: "btn create-btn-cansel"
-              = f.submit t("buttons.create_reply"), class: "create-btn-create btn btn--type-02"
+          - if current_user
+            = form_for [@topic, @topic.posts.build] do |f|
+              = render "shared/error_messages", object: f.object
+              = f.hidden_field :topic_id, value: @topic.id
+              .create-section.create-textarea
+                = f.label "Rely post", class: "create-label"
+                = f.cktext_area :content, class: "form-control", id: "reply_form"
+              .create-footer
+                = link_to t("buttons.cancel"), "#", class: "btn create-btn-cansel"
+                = f.submit t("buttons.create_reply"), class: "create-btn-create btn btn--type-02"
+          - else
+            p.text-center
+              = link_to "Login", new_user_session_path, class: "color-default"
+              |  to reply
