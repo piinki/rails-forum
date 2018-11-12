@@ -8,7 +8,7 @@
             .pin-topic
               = icon "fas", "thumbtack"
           = @topic.title
-        - if policy(@topic).edit?
+        - if current_user && policy(@topic).edit?
           .dropdown-hover
             = icon "fas", "ellipsis-h", class: "topic-btn-option"
             .dropdown-hover-content
