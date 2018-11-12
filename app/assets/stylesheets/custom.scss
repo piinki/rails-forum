@@ -162,8 +162,6 @@ nav.pagination {
   }
 }
 
-a {
-  &:link {
-    color: #066392;
-  }
+.no-wrap {
+  flex-wrap: nowrap;
 }
