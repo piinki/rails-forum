@@ -44,3 +44,9 @@ user_tokens:
   short_expires_in: <%= 1.days %>
 per_page:
   topic: 10
+  user: 10
+css:
+  roles:
+    admin: badge badge-danger
+    moderator: badge badge-info
+    normal: badge badge-success

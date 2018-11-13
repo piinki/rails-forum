@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   namespace :managers do
     root "dashboard#index"
     resources :categories
+    resources :users, except: :create
   end
 
   # For demo ui

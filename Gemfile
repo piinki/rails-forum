@@ -20,7 +20,7 @@ group :development, :test do
   gem "rspec"
   gem "rspec-rails"
   gem "rspec-collection_matchers"
-  gem "factory_bot"
+  gem "factory_bot_rails"
   gem "database_cleaner"
   gem "faker"
   gem "uniform_notifier"

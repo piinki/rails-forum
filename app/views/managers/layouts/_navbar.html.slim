@@ -58,7 +58,7 @@ nav.navbar.default-layout.col-lg-12.col-12.p-0.fixed-top.d-flex.flex-row
           = image_tag "managers/Bot.svg", alt: "Profile image", class: "img-xs rounded-circle"
           = icon "fas", "angle-down"
         .dropdown-menu.dropdown-menu-right.navbar-dropdown[aria-labelledby="UserDropdown"]
-          = link_to "Manage Accounts", "#", class: "dropdown-item mt-2"
+          = link_to "Home Page", root_path, class: "dropdown-item mt-2"
           = link_to "Change Password", "#", class: "dropdown-item"
           = link_to "Check Inbox", "#", class: "dropdown-item"
           = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"
