@@ -1,0 +1,9 @@
+.manager-user-index
+  .row.col-lg-12.grid-margin.stretch-card
+    .card
+      .card-body
+        - if @users
+          = render "table_users", users: @users
+
+        = link_to new_managers_category_path, class: "btn-create-circle" do
+          = icon "fas", "plus"

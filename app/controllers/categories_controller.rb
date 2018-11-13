@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i(show)
   before_action :find_category, only: :show
 
   def show

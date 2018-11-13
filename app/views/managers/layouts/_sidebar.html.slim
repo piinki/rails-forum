@@ -18,6 +18,11 @@ nav#sidebar.sidebar.sidebar-offcanvas
         span.menu-title
           | Categories
     li.nav-item
+      = link_to managers_users_path, class: "nav-link" do
+        = icon "fas", "bomb"
+        span.menu-title
+          | User
+    li.nav-item
       = link_to "#ui-basic", class: "nav-link", data: {toggle: "collapse"} do
         = icon "fas", "book"
         span.menu-title
