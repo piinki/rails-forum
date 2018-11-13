@@ -34,6 +34,14 @@ class ApplicationPolicy
     false
   end
 
+  def manager?
+    user.admin? || user.moderator?
+  end
+
+  def admin?
+    user.admin?
+  end
+
   class Scope
     attr_reader :user, :scope
 

@@ -15,5 +15,6 @@
  *= require topic
  *= require profile
  *= require category
+ *= require comon
  *= require_self
  */
