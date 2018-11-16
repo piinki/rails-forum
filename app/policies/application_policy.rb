@@ -42,6 +42,10 @@ class ApplicationPolicy
     user.admin?
   end
 
+  def executive?
+    admin? && record != user
+  end
+
   class Scope
     attr_reader :user, :scope
 

@@ -1,0 +1,25 @@
+.manager-category-new
+  .row.col-lg-12.grid-margin.stretch-card
+    .card
+      .card-head
+        h2.card-title
+          | Add moderator for #{@category_manager.category.title}
+      .card-body
+        .table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th
+                  |  Moderator Name
+                th
+                  | Action
+            tbody
+              - @category.category_managers.each do |cm|
+                - if cm.persisted?
+                  tr
+                    td
+                      = cm.user.try(:full_name)
+                    td.with-10
+                      = link_to "Xoa", managers_category_manager_path(cm), method: :delete,  data: {confirm: "Are you sure"}
+        hr
+        = render "form", category_manager: @category_manager, moderators: @moderators
