@@ -4,7 +4,7 @@
   cursor: pointer;
   font-size: 22px;
   margin-bottom: 12px;
-  padding-left: 35px;
+  margin-left: 35px;
   position: relative;
   user-select: none;
 
@@ -33,7 +33,7 @@
 	&:hover {
 		input {
 			&~.checkmark {
-				background-color: #ccc;
+				background-color: #2196F3;
 			}
 		}
   }
@@ -77,4 +77,29 @@
 
 .table-responsive {
 	overflow-x: visible;
+}
+
+nav.pagination {
+  margin-top: 5px;
+  justify-content: center;
+
+  > span {
+    border: 1px solid #e9ecee;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 0 6px;
+
+    &:hover {
+      background-color: #fdf4f4;
+    }
+  }
+}
+
+.card-head {
+	padding: 20px;
+	border-bottom: 1px solid #e9ecee;
+
+	h2, h4 {
+		margin-bottom: 0;
+	}
 }

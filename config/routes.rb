@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   # For admin panel
   namespace :managers do
     root "dashboard#index"
-    resources :categories
+    resources :categories, shallow: true do
+      resources :category_managers
+    end
     resources :users, except: :create
   end
 

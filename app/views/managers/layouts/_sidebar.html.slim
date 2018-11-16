@@ -4,7 +4,10 @@ nav#sidebar.sidebar.sidebar-offcanvas
       .nav-link
         .user-wrapper
           .profile-image
-            = image_tag "managers/Bot.svg", alt: "Profile image"
+            - if current_user.avatar.attached?
+              = image_tag current_user.avatar, class: "img-xs rounded-circle"
+            - else
+              = image_tag "Bot.svg", class: "img-xs rounded-circle"
           .text-wrapper
             p.profile-name
               | Richard V.Welsh

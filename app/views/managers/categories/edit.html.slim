@@ -3,7 +3,8 @@
 .manager-category-edit
   .row.col-lg-12.grid-margin.stretch-card
     .card
-      .card-body
+      .card-head
         h2.card-title
           | Update Category
+      .card-body
         = render "form", category: @category

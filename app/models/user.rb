@@ -17,6 +17,10 @@ class User < ApplicationRecord
   validate :validate_current_password, if: :validate_password?, on: :update
   validate :validate_same_password, if: :validate_password?, on: :update
 
+  scope :not_manager_category,(lambda do |cate|
+    where.not id: cate.moderators.ids
+  end)
+
   def root_path
     routes = Rails.application.routes.url_helpers
     return routes.root_path if normal?
