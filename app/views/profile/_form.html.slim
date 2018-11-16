@@ -1,0 +1,14 @@
+.create.border-none.margin-none
+  h4
+    | Change password
+  = form_for current_user, url: profile_index_path  do |f|
+    = render "shared/error_messages", object: f.object
+    .create-section
+      = f.label "First Name", class: "create-label"
+      = f.text_field :first_name, nil, autocomplete: "off", \
+        class: "form-control", placeholder: "Enter First Name", required: true
+    .create-section
+      = f.label "Last name", class: "create-label"
+      = f.text_field :last_name, autocomplete: "off", \
+        class: "form-control", placeholder: "Enter Last Name", required: true
+    = f.submit "Save", class: "login-btn-create btn btn--type-02"

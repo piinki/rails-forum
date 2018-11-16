@@ -54,8 +54,11 @@ nav.navbar.default-layout.col-lg-12.col-12.p-0.fixed-top.d-flex.flex-row
       li.nav-item.dropdown.d-none.d-xl-inline-block
         a#UserDropdown.nav-link.dropdown-toggle[href="#" data-toggle="dropdown" aria-expanded="false"]
           span.profile-text
-           = current_user.full_name ? current_user.full_name : "Anonymous"
-          = image_tag "managers/Bot.svg", alt: "Profile image", class: "img-xs rounded-circle"
+          = current_user.full_name ? current_user.full_name : "Anonymous"
+          - if current_user.avatar.attached?
+            = image_tag current_user.avatar, class: "img-xs rounded-circle"
+          - else
+            = image_tag "Bot.svg", class: "img-xs rounded-circle"
           = icon "fas", "angle-down"
         .dropdown-menu.dropdown-menu-right.navbar-dropdown[aria-labelledby="UserDropdown"]
           = link_to "Home Page", root_path, class: "dropdown-item mt-2"

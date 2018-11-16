@@ -1,0 +1,18 @@
+.manager-user-edit
+  .row.col-lg-12.grid-margin.stretch-card
+    .card
+      .card-head
+        h4.card-title
+          | Change permision for #{@user.full_name}
+      .card-body
+        = form_for [:managers, @user] do |f|
+          = render "shared/error_messages", object: f.object
+          .row
+            .form-group.col-md-6
+              = f.label :role, class: "d-block"
+              = collection_radio_buttons :user, :role, User.roles, :first, :first do |b|
+                = b.label class: "container-radio"
+                  span #{b.object.first}
+                  = b.radio_button class: "role-user-radio"
+                  span.checkmark
+          = f.submit "Save", class:"btn btn-success"

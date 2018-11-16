@@ -1,8 +1,9 @@
 .row.col-lg-12.grid-margin.stretch-card
   .card
-    .card-body
+    .card-head
       h4.card-title
         | List User
+    .card-body
       .table-responsive
         table.table.table-striped
           thead
@@ -31,15 +32,13 @@
                     = user.role
                 td.width-20
                   .btn-group.dropdown
-                    button.btn.btn-success.dropdown-toggle.btn-sm[type="button" data-toggle="dropdown"]
-                      |  Action
-                    .dropdown-menu
-                      = link_to "#", class: "dropdown-item" do
-                        = icon "fas", "fa-edit"
-                        | Change permistion
-                      = link_to "#", class: "dropdown-item" do
-                        = icon "fas", "fa-edit"
-                        | Edit
-                      = link_to "#", class: "dropdown-item", method: :delete, data: {confirm: "Are you sure"} do
-                        = icon "fas", "fa-trash"
-                        | Delete
+                    - if policy(user).executive?
+                      button.btn.btn-success.dropdown-toggle.btn-sm[type="button" data-toggle="dropdown"]
+                        |  Action
+                      .dropdown-menu
+                        = link_to edit_managers_user_path(user), class: "dropdown-item" do
+                          = icon "fas", "fa-edit"
+                          | Change permistion
+                        = link_to managers_user_path(user), class: "dropdown-item", method: :delete, data: {confirm: "Are you sure"} do
+                          = icon "fas", "fa-trash"
+                          | Delete

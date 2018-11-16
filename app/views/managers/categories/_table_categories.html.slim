@@ -1,33 +1,43 @@
 .row.col-lg-12.grid-margin.stretch-card
   .card
-    .card-body
+    .card-head
       h4.card-title
         | List category
+    .card-body
       .table-responsive
         table.table.table-striped
           thead
             tr
-              th
+              th.width-20
                 |  Category Name
-              th
+              th.width-10
                 |  Topics
-              th
+              th.width-50
+                | Moderator
+              th.width-20
                 |  Action
           tbody
             - categories.each do |category|
               tr
-                td.py-1
+                td.width-20
                   = category.title
-                td
+                td.width-10
                   = category.topics.size
-                td
+                td.width-50
+                  - category.category_managers.each do |cm|
+                    span class="#{Settings.css.roles.moderator}"
+                      = cm.user.full_name
+                td.width-20
                   .btn-group.dropdown
                     button.btn.btn-success.dropdown-toggle.btn-sm[type="button" data-toggle="dropdown"]
                       |  Action
                     .dropdown-menu
+                      = link_to new_managers_category_category_manager_path(category), class: "dropdown-item" do
+                        = icon "fas", "plus"
+                        | Add moderator
                       = link_to edit_managers_category_path(id: category.id) , class: "dropdown-item" do
-                        = icon "fas", "fa-edit"
+                        = icon "fas", "edit"
                         | Edit
                       = link_to managers_category_path(id: category.id), class: "dropdown-item", method: :delete, data: {confirm: "Are you sure"} do
-                        = icon "fas", "fa-trash"
+                        = icon "fas", "trash"
                         | Delete

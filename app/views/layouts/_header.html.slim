@@ -46,7 +46,10 @@ header
                   | view older notifications...
         .header-user
           .header-user-btn.dropdown-btn--open[data-dropdown-btn="user"]
-            = image_tag "A.svg", alt: "avatar" do
+            - if current_user.avatar.attached?
+              = image_tag current_user.avatar, class: "profile-avatar"
+            - else
+              = image_tag "Bot.svg", class: "profile-avatar"
             = link_to current_user.full_name, "#"
             = icon "fas", "angle-down"
           nav.dropdown.dropdown--design-01[data-dropdown-list="user"]
