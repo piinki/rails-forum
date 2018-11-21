@@ -33,7 +33,7 @@
       .topics-content
         = render @topic.posts
         .topic#reply-form
-          - if current_user
+          - if current_user && !current_user.banned?
             = form_for [@topic, @topic.posts.build] do |f|
               = render "shared/error_messages", object: f.object
               = f.hidden_field :topic_id, value: @topic.id
@@ -43,6 +43,9 @@
               .create-footer
                 = link_to t("buttons.cancel"), "#", class: "btn create-btn-cansel"
                 = f.submit t("buttons.create_reply"), class: "create-btn-create btn btn--type-02"
+          - elsif current_user.banned?
+            p.text-center
+              | Ban bi ban cmm no rui, lien lac voi admin de biet thong tin chi tiet
           - else
             p.text-center
               = link_to "Login", new_user_session_path, class: "color-default"
