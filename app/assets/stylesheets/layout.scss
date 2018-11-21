@@ -631,19 +631,8 @@ select {
 }
 
 .dropdown {
-  display: none;
-  position: absolute;
-  padding: 20px 0;
-  top: 100%;
-  left: 0;
-  font-size: 16px;
-  background-color: $white;
-  flex-direction: column;
-  z-index: 1;
-  >* {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+  display: inline-block;
+  cursor: pointer;
 
   h3 {
     margin: 6px 0 15px;
