@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: :show
 
   def show
+    authorize category
     @topics = category.topics.page(params[:page]).per Settings.per_page.topic
   end
 

@@ -12,8 +12,9 @@
             {include_blank: "Choose category"},  required: true
   .create-section.create-textarea
     = f.fields_for :posts do |ff|
-      = ff.label :content, class: "create-label"
-      = ff.cktext_area :content, class: "form-control"
+      - if ff.object.is_root?
+        = ff.label :content, class: "create-label"
+        = ff.cktext_area :content, class: "form-control"
   .create-footer
     = link_to t("buttons.cancel"), "#", class: "btn create-btn-cansel"
     = f.submit t("buttons.create_topic"), class: "create-btn-create btn btn--type-02"

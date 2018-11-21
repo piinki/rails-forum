@@ -12,7 +12,11 @@
                 |  Category Name
               th.width-10
                 |  Topics
-              th.width-50
+              th.width-10
+                | Status
+              th.width-10
+                | Permission
+              th.width-30
                 | Moderator
               th.width-20
                 |  Action
@@ -23,7 +27,13 @@
                   = category.title
                 td.width-10
                   = category.topics.size
-                td.width-50
+                td.width-10
+                  span class="#{Settings.css.category[category.status]}"
+                    = category.status
+                td.width-10
+                  span class="#{Settings.css.category[category.permission_view]}"
+                    = category.permission_view
+                td.width-30
                   - category.category_managers.each do |cm|
                     span class="#{Settings.css.roles.moderator}"
                       = cm.user.full_name

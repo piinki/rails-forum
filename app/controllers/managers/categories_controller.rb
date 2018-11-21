@@ -2,7 +2,7 @@ class Managers::CategoriesController < Managers::BaseController
   before_action :find_category, only: %i(show edit update destroy)
 
   def index
-    @categories = Category.select :id, :title
+    @categories = Category.all
   end
 
   def new

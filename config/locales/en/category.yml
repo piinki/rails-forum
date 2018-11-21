@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      category:
+        statuses:
+          published: "Published"
+          unpublish: "Unpublish"
+          archived: "Archived"
+        permission_views:
+          everyone: "Everyone"
+          user: "Only user"
