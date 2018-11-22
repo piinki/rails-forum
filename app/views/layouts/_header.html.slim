@@ -12,24 +12,21 @@ header
           label
             = icon("fas", "search")
             input.form-control[type="search" placeholder="Search all forums"]
-        .header-search-btn.dropdown-btn--open[data-dropdown-btn="search"]
+        .header-search-btn.dropdown.dropdown-btn--open[data-toggle="dropdown"]
           |  Category
-          = icon("fas", "angle-down")
-        nav.dropdown.dropdown--design-01.category-dropdown[data-dropdown-list="menu"]
-          div
-            ul.dropdown-catalog
-              - Category.all.each do |cate|
-                = link_to category_path(cate), class: "category"
-                  li.col-xs-6
-                    i.bg-f9bc64
-                    = cate.title
+          span.dropdown-toggle
+          ul.dropdown-menu.dropdown--design-01.dropdown-catalog
+            - Category.all.each do |cate|
+              li.col-xs-6
+                i.bg-f9bc64
+                = cate.title
       - if current_user
-        .header-notification
-          .header-notification-btn[data-dropdown-btn="notification"]
+        .header-notification.dropdown
+          .header-notification-btn[data-toggle="dropdown"]
             = icon "fas", "bell"
             span
               | 6
-          .dropdown.dropdown--design-01[data-dropdown-list="notification"]
+          ul.dropdown-menu.dropdown--design-01
             div
               = link_to "#" do
                 p
@@ -45,23 +42,22 @@ header
                 = link_to "#" do
                   | view older notifications...
         .header-user
-          .header-user-btn.dropdown-btn--open[data-dropdown-btn="user"]
-            - if current_user.avatar.attached?
-              = image_tag current_user.avatar, class: "profile-avatar"
-            - else
-              = image_tag "Bot.svg", class: "profile-avatar"
-            = link_to current_user.full_name, "#"
-            = icon "fas", "angle-down"
-          nav.dropdown.dropdown--design-01[data-dropdown-list="user"]
-            div
-              ul.dropdown-catalog
-                - unless current_user.normal?
-                  li
-                    = link_to "Manager Page", managers_root_path
+          .header-user-btn.dropdown
+            div[data-toggle="dropdown"]
+              - if current_user.avatar.attached?
+                = image_tag current_user.avatar, class: "profile-avatar"
+              - else
+                = image_tag "Bot.svg", class: "profile-avatar"
+              = link_to current_user.full_name, "#"
+              span.dropdown-toggle
+            ul.dropdown-menu.dropdown--design-01.dropdown-catalog
+              li
+                = link_to "Profile", profile_index_path
+              - unless current_user.normal?
                 li
-                  = link_to "Profile", profile_index_path
-                li
-                  = link_to "Logout", destroy_user_session_path, method: :delete
+                  = link_to "Manager Page", managers_root_path
+              li
+                = link_to "Logout", destroy_user_session_path, method: :delete
       - else
         .header-menu-btn
           .signin-btn

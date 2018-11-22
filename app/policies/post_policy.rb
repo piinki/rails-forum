@@ -1,5 +1,9 @@
 class PostPolicy < ApplicationPolicy
+  def create?
+    perform?
+  end
+
   def edit?
-    record.user == user || user.admin? || user.moderator?
+    record.user == user || manager?
   end
 end

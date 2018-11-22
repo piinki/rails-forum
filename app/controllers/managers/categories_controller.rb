@@ -2,7 +2,7 @@ class Managers::CategoriesController < Managers::BaseController
   before_action :find_category, only: %i(show edit update destroy)
 
   def index
-    @categories = Category.select :id, :title
+    @categories = Category.all
   end
 
   def new
@@ -54,6 +54,6 @@ class Managers::CategoriesController < Managers::BaseController
   end
 
   def category_params
-    params.require(:category).permit :id, :title, :description, :permission_view, :status
+    params.require(:category).permit :id, :title, :description, :permission_view, :status, :limit_topic_pin
   end
 end

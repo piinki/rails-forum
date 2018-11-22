@@ -12,4 +12,5 @@ class Category < ApplicationRecord
   validates :description, presence: true
   validates :status, presence: true
   validates :permission_view, presence: true
+  validates :limit_topic_pin, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
 end

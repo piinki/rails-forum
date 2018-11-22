@@ -31,6 +31,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def banned?
+    expired_at && expired_at > Date.today ? true : false
+  end
+
   class << self
 
     # For API

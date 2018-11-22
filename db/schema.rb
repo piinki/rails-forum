@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_120358) do
+ActiveRecord::Schema.define(version: 2018_11_22_134125) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2018_11_11_120358) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "ban_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "banner_functions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "groupable_id"
@@ -49,6 +56,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_120358) do
     t.integer "permission_view"
     t.integer "permission_post"
     t.integer "status"
+    t.integer "limit_topic_pin"
   end
 
   create_table "category_managers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,6 +78,14 @@ ActiveRecord::Schema.define(version: 2018_11_11_120358) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "inboxes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "creator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "topic_id"
     t.text "content"
@@ -79,6 +95,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_120358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_root"
+    t.integer "editor_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_120358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "pin_at"
+    t.integer "editor_id"
   end
 
   create_table "user_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,7 +138,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_120358) do
     t.string "password"
     t.integer "role", default: 0
     t.datetime "locked_at"
-    t.integer "banner"
+    t.date "expired_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false

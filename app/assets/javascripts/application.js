@@ -16,5 +16,7 @@
 //= require activestorage
 //= require ckeditor/init
 //= require jquery
+//= require popper
+//= require bootstrap
 //= require layout
 //= require custom

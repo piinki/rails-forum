@@ -3,7 +3,9 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: :show
 
   def show
-    @topics = category.topics.page(params[:page]).per Settings.per_page.topic
+    authorize category
+    @topics_pined = category.topics.pinted
+    @topics = category.topics.not_pin.page(params[:page]).per Settings.per_page.topic
   end
 
   private

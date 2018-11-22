@@ -6,11 +6,28 @@
     .topic-caption
       .topic-name
         = link_to post.user_full_name, "#"
+        - if current_user && policy(:post).admin?
+          .dropdown
+            span.dropdown-toggle data-toggle="dropdown"
+            ul.dropdown-menu.dropdown--design-01
+              - if post.user.banned?
+                = link_to "Unban", user_unban_path, method: :patch, class: "dropdown-item"
+              - else
+                = link_to "Ban", user_viewban_path, class: "dropdown-item"
+        div
+          - if post.user.banned?
+            span class="badge badge-warning"
+              | Banned
+          - else
+            span class="#{Settings.css.roles[post.user.role]}"
+              = post.user.role
         .post-count
           | Post: 3
       .topic-date
         = icon "fas", "clock"
         = l post.created_at, format: :short
+        - if post.editor
+          = " edit by #{post.editor.full_name}"
   .topic-content
     .topic-text id="post-content-#{post.id}"
       = post.content.html_safe
@@ -37,7 +54,7 @@
             = icon "fas", "share"
         a.quote-post.prevent-load[href="#" data-post-id="post-content-#{post.id}" data-name="#{post.user_full_name}" data-anchor="#{post.id}"]
           = icon "fas", "quote-right"
-        - if current_user && policy(post).edit?
+        - if current_user && policy(post).edit? && !post.topic.locked_at
           - unless post.is_root?
             = link_to topic_post_path(post.topic, post), method: :delete, data: {confirm: "Are you sure"} do
               = icon "fas", "trash"
