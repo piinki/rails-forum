@@ -19,6 +19,9 @@
     = f.label :title
     = f.text_field :title, class: "form-control"
   .form-group
+    = f.label :limit_topic_pin
+    = f.number_field :limit_topic_pin, class: "form-control"
+  .form-group
     = f.label :description
     = f.cktext_area :description, class: "form-control"
   = f.submit "Save", class:"btn btn-success"

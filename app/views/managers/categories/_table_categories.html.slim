@@ -11,7 +11,7 @@
               th.width-20
                 |  Category Name
               th.width-10
-                |  Topics
+                |  Limit Pin
               th.width-10
                 | Status
               th.width-10
@@ -26,7 +26,7 @@
                 td.width-20
                   = category.title
                 td.width-10
-                  = category.topics.size
+                  = category.limit_topic_pin
                 td.width-10
                   span class="#{Settings.css.category[category.status]}"
                     = category.status

@@ -4,7 +4,8 @@ class CategoriesController < ApplicationController
 
   def show
     authorize category
-    @topics = category.topics.page(params[:page]).per Settings.per_page.topic
+    @topics_pined = category.topics.pinted
+    @topics = category.topics.not_pin.page(params[:page]).per Settings.per_page.topic
   end
 
   private
