@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i(edit update destroy)
 
   def create
+    authorize Post
     @post = @topic.posts.build post_params
     post.user = current_user
     if post.save
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    if post.update_attributes post_params
+    if post.update_attributes post_params.merge editor_id: current_user.id
       flash[:success] = t "post.messages.update_successful"
       redirect_to topic_path(post.topic, anchor: "post-bookmark-#{post.id}")
     else

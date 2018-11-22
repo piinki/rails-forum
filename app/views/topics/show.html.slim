@@ -8,6 +8,8 @@
             .pin-topic
               = icon "fas", "thumbtack"
           = @topic.title
+          - if @topic.locked_at
+            span.badge.badge-danger Locked
         - if current_user && policy(@topic).edit?
           .dropdown-hover
             = icon "fas", "ellipsis-h", class: "topic-btn-option"
@@ -19,6 +21,9 @@
                       = link_to "Pin topic", topic_pin_path(@topic), method: :patch
                     - else
                       = link_to "Unpin topic", topic_unpin_path(@topic), method: :patch
+                - if policy(@topic).toggle_lock?
+                  li
+                    = link_to (@topic.locked_at ? "Unlock" : "Lock"), topic_toggle_lock_path(@topic), method: :patch
                 li
                   = link_to "edit", edit_topic_path(@topic)
                 li
@@ -33,7 +38,10 @@
       .topics-content
         = render @topic.posts
         .topic#reply-form
-          - if current_user && !current_user.banned?
+          - if @topic.locked_at
+            p.text-center
+              | Bai viet da bi khoa cmnr
+          - elsif current_user && !current_user.banned?
             = form_for [@topic, @topic.posts.build] do |f|
               = render "shared/error_messages", object: f.object
               = f.hidden_field :topic_id, value: @topic.id

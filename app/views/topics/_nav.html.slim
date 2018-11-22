@@ -1,16 +1,15 @@
 .nav
-  .nav-categories.js-dropdown
-    .nav-select
-      .btn-select.dropdown-btn--open
+  .nav-categories
+    .nav-select.dropdown
+      .btn-select data-toggle="dropdown"
         - if defined? category
           = category.title
         - else
           | All Categories
-      nav.dropdown.dropdown--design-01
-        ul.dropdown-catalog.row.no-wrap
-          - Category.all.each do |cate|
-            li.col-xs-12
-              = link_to cate.title, category_path(cate), class: "category"
+      ul.dropdown-catalog.row.no-wrap.dropdown--design-01.dropdown-menu
+        - CategoryPolicy::Scope.new(current_user, Category).categories.each do |cate|
+          li.col-xs-12.dropdown-item
+            = link_to cate.title, category_path(cate), class: "category"
   .nav-menu.js-dropdown
     ul
       li.active

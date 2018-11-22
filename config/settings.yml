@@ -50,3 +50,9 @@ css:
     admin: badge badge-danger
     moderator: badge badge-info
     normal: badge badge-success
+  user_banned: badge badge-warning
+  category:
+    published: badge badge-success
+    unpublish: badge badge-danger
+    user: badge badge-info
+    everyone: badge badge-success

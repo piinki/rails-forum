@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   patch "topics/:id/pin", to: "topics#pin", as: :topic_pin
   patch "topics/:id/unpin", to: "topics#unpin", as: :topic_unpin
+  patch "topics/:id/toggle_lock", to: "topics#toggle_lock", as: :topic_toggle_lock
   get "users/:id/ban", to: "users#viewban", as: :user_viewban
   patch "users/:id/ban", to: "users#ban", as: :user_ban
   patch "users/:id/unban", to: "users#unban", as: :user_unban

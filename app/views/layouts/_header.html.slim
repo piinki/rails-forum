@@ -51,13 +51,13 @@ header
               = link_to current_user.full_name, "#"
               span.dropdown-toggle
             ul.dropdown-menu.dropdown--design-01.dropdown-catalog
+              li
+                = link_to "Profile", profile_index_path
               - unless current_user.normal?
                 li
                   = link_to "Manager Page", managers_root_path
-                li
-                  = link_to "Profile", profile_index_path
-                li
-                  = link_to "Logout", destroy_user_session_path, method: :delete
+              li
+                = link_to "Logout", destroy_user_session_path, method: :delete
       - else
         .header-menu-btn
           .signin-btn

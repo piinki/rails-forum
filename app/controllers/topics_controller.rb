@@ -1,18 +1,20 @@
 class TopicsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(index show)
-  before_action :find_topic, only: %i(show edit update destroy pin unpin)
+  before_action :find_topic, only: %i(show edit update destroy pin unpin toggle_lock)
 
   def index
-    @topics = Topic.all.page(params[:page]).per Settings.per_page.topic
+    @topics = policy_scope(Topic).page(params[:page]).per Settings.per_page.topic
   end
 
   def new
+    authorize Topic
     @topic = Topic.new
     topic.posts.build
     @categories = Category.all
   end
 
   def create
+    authorize Topic
     @topic = Topic.new topic_params
     topic.creator = current_user
     if topic.save
@@ -26,11 +28,13 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    authorize topic
     @categories = Category.all
   end
 
   def update
-    if @topic.update_attributes topic_params
+    authorize topic
+    if topic.update_attributes topic_params.merge editor_id: current_user.id
       flash[:success] = t "topic.messages.update_successful"
       redirect_to topic_path(topic)
     else
@@ -41,7 +45,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    authorize Topic
+    authorize topic
     if topic.destroy
       flash[:success] = t "topic.messages.delete_successful"
       redirect_to category_path(topic.category)
@@ -65,6 +69,17 @@ class TopicsController < ApplicationController
       flash[:success] = "Bai viet da bo ghim"
     else
       flash[:warning] = "Bai viet khong the bo ghim"
+    end
+    redirect_to topic_path(topic)
+  end
+
+  def toggle_lock
+    authorize topic
+    locked = topic.locked_at ?  nil : Time.current
+    if topic.update_attributes locked_at: locked
+      flash[:success] = "Topic da duoc cap nhap trang thai"
+    else
+      flash[:warning] = "Toic khong the cap nhap trang thai"
     end
     redirect_to topic_path(topic)
   end
