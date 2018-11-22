@@ -59,7 +59,8 @@ class TopicsController < ApplicationController
     if topic.update_attributes pin_at: Time.current
       flash[:success] = "Bai viet da ghim"
     else
-      flash[:warning] = "Bai viet khong the ghim"
+      error ||= topic.errors.full_messages
+      flash[:warning] = "Bai viet khong the ghim. \n #{error.join('. ')}"
     end
     redirect_to topic_path(topic)
   end

@@ -13,5 +13,6 @@
       .posts-views
         | Views
     .posts-body
+      = render partial: "categories/topic_pin", collection: @topics_pined, as: :topic
       = render partial: "categories/topic", collection: @topics
       = paginate @topics
