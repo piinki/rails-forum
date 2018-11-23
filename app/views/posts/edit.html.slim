@@ -9,7 +9,7 @@
         span
           | Forum Guidelines
       .topic
-        = form_for [@post.topic, @post] do |f|
+        = form_for @post do |f|
           = render "shared/error_messages", object: f.object
           .create-section.create-textarea
             = f.label "Rely post", class: "create-label"

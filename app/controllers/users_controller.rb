@@ -21,8 +21,8 @@ class UsersController < ApplicationController
 		else
 			flash[:warning] = "User ko the het ban"
 		end
-		redirect_to request.referer 
-	end 
+		redirect_to request.referer
+	end
 
 	private
 

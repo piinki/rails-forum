@@ -15,3 +15,8 @@ en:
       update_fail: "Cannot edit topic"
       delete_successful: "Delete topic successful"
       delete_fails: "Cannot delete topic"
+    history:
+      update: "%{name} edited post at %{time}"
+      create: "%{name} created post at %{time}"
+      destroy: "%{name} deleted post at %{time}"
+      restore: "%{name} restored post at %{time}"

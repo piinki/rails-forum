@@ -36,6 +36,16 @@ class PostsController < ApplicationController
     redirect_to topic_path(post.topic)
   end
 
+  def restore
+    post = Post.with_deleted.find_by id: params[:id]
+    if post.restore
+      flash[:success] = "restore thanh cong"
+    else
+      flash[:warning] = "Khong restore duoc"
+    end
+    redirect_to topic_path(post.topic)
+  end
+
   private
 
   attr_reader :post, :topic

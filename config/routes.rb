@@ -18,8 +18,11 @@ Rails.application.routes.draw do
   get "users/:id/ban", to: "users#viewban", as: :user_viewban
   patch "users/:id/ban", to: "users#ban", as: :user_ban
   patch "users/:id/unban", to: "users#unban", as: :user_unban
+  patch "posts/:id/restore", to: "posts#restore", as: :post_restore
   resources :topics do
-    resources :posts
+    resources :posts, shallow: true do
+      resources :history, controller: :history_posts
+    end
   end
 
   resources :categories, only: %i(show)

@@ -8,7 +8,7 @@ class TopicPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.creator == user || perform?
+    record.creator == user && perform?
   end
 
   def destroy?

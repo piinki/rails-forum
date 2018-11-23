@@ -32,11 +32,9 @@
           = link_to category_path(@topic.category), class: "category" do
             i.bg-3ebafa
             = @topic.category.title
-          .tags
-
     .topics-body
       .topics-content
-        = render @topic.posts
+        = render @topic.posts.with_deleted
         .topic#reply-form
           - if @topic.locked_at
             p.text-center
@@ -51,10 +49,20 @@
               .create-footer
                 = link_to t("buttons.cancel"), "#", class: "btn create-btn-cansel"
                 = f.submit t("buttons.create_reply"), class: "create-btn-create btn btn--type-02"
-          - elsif current_user.banned?
+          - elsif current_user && current_user.banned?
             p.text-center
               | Ban bi ban cmm no rui, lien lac voi admin de biet thong tin chi tiet
           - else
             p.text-center
               = link_to "Login", new_user_session_path, class: "color-default"
               |  to reply
+#modalPost.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title Modal Heading
+        button.close data-dismiss="modal" type="button"  ×
+      .modal-body
+        | Modal body..
+      .modal-footer
+        button.btn.btn-danger data-dismiss="modal" type="button"  Close
