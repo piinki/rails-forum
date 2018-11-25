@@ -1,8 +1,9 @@
 class Managers::CategoriesController < Managers::BaseController
+  before_action :authorize_category, except: :index
   before_action :find_category, only: %i(show edit update destroy)
 
   def index
-    @categories = Category.all
+    @categories = Category.all.includes(:category_managers)
   end
 
   def new
@@ -12,10 +13,10 @@ class Managers::CategoriesController < Managers::BaseController
   def create
     @category = Category.new category_params
     if @category.save
-      flash[:success] = "Create category successfully"
+      flash[:success] = t "category.messages.create_successful"
       redirect_to managers_categories_path
     else
-      flash[:warning] = "Cannot create category"
+      flash[:warning] = t "category.messages.create_fail"
       render :new
     end
   end
@@ -24,19 +25,19 @@ class Managers::CategoriesController < Managers::BaseController
 
   def update
     if @category.update_attributes category_params
-      flash[:success] = "Update category successfully"
+      flash[:success] = t "category.messages.update_successful"
       redirect_to managers_categories_path
     else
-      flash[:warning] = "Cannot update category"
+      flash[:warning] = t "category.messages.update_fail"
       render :edit
     end
   end
 
   def destroy
     if @category.destroy
-      flash[:success] = "Delete category successfully"
+      flash[:success] = t "category.messages.delete_success"
     else
-      flash[:warning] = "Cannot Delete category"
+      flash[:warning] = t "category.messages.delete_fail"
     end
     redirect_to managers_categories_path
   end
@@ -49,11 +50,15 @@ class Managers::CategoriesController < Managers::BaseController
     @category = Category.find_by id: params[:id]
     return if category
 
-    flash[:warning] = "Cannot find category"
+    flash[:warning] = t "category.messages.not_found"
     redirect_to managers_categories_path
   end
 
   def category_params
     params.require(:category).permit :id, :title, :description, :permission_view, :status, :limit_topic_pin
+  end
+
+  def authorize_category
+    authorize Category, :admin?
   end
 end

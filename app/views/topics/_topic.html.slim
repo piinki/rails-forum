@@ -11,6 +11,6 @@ div class="posts-item #{topic_counter.odd? ? "bg-f2f4f6" : ""}"
         = topic.category.title
   .posts-section-right
     .posts-replies
-      = topic.posts.size
+      = topic.posts_count
     .posts-views
-      | 12.1 k
+      = topic.views_count

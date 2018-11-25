@@ -176,3 +176,27 @@ nav.pagination {
 .dropdown-toggle {
   margin-left: 10px;
 }
+
+.modal-content {
+  border: 1px solid #f3f5f5;
+  border-radius: 0;
+}
+
+.topic-show {
+  .modal-body {
+    height: 400px;
+    overflow-y: scroll;
+  }
+
+  .modal-header {
+    padding: .5rem;
+  }
+
+  .history-head {
+    cursor: pointer;
+  }
+}
+
+.banned-user {
+  text-decoration: line-through !important;
+}

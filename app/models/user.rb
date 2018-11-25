@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_paper_trail
+  acts_as_paranoid
+
   devise :database_authenticatable, :rememberable, :validatable, :registerable
 
   enum role: %i(normal moderator admin)
@@ -6,20 +9,25 @@ class User < ApplicationRecord
   has_many :topics, dependent: :destroy, foreign_key: :creator_id
   has_many :banner_functions, dependent: :destroy
   has_many :category_managers, dependent: :destroy
+  has_many :inboxes, dependent: :destroy, foreign_key: :creator_id
+  has_many :inbox_recipients, foreign_key: :recipient_id, class_name: "Inbox"
   has_one :user_token, dependent: :destroy
 
   has_one_attached :avatar
-
   attr_accessor :current_password
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validate :validate_current_password, if: :validate_password?, on: :update
   validate :validate_same_password, if: :validate_password?, on: :update
+  validate :time_ban_not_in_post
 
   scope :not_manager_category,(lambda do |cate|
     where.not id: cate.moderators.ids
   end)
+
+  scope :banned, -> { where.not expired_at: nil }
+  scope :acceptable, -> { where expired_at: nil }
 
   def root_path
     routes = Rails.application.routes.url_helpers
@@ -63,5 +71,10 @@ class User < ApplicationRecord
     user = User.find_by id: id
     return unless user.valid_password?(password)
     errors.add(:password, "not same old password.")
+  end
+
+  def time_ban_not_in_post
+    return unless expired_at && expired_at < Date.today
+    errors.add :expried_at, "not in past"
   end
 end

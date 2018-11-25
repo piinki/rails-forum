@@ -12,35 +12,7 @@ header
           label
             = icon("fas", "search")
             input.form-control[type="search" placeholder="Search all forums"]
-        .header-search-btn.dropdown.dropdown-btn--open[data-toggle="dropdown"]
-          |  Category
-          span.dropdown-toggle
-          ul.dropdown-menu.dropdown--design-01.dropdown-catalog
-            - Category.all.each do |cate|
-              li.col-xs-6
-                i.bg-f9bc64
-                = cate.title
       - if current_user
-        .header-notification.dropdown
-          .header-notification-btn[data-toggle="dropdown"]
-            = icon "fas", "bell"
-            span
-              | 6
-          ul.dropdown-menu.dropdown--design-01
-            div
-              = link_to "#" do
-                p
-                  | Roswell . 16 feb, 17
-                  span
-                    | Which movie have you watched recently?
-              = link_to "#" do
-                p
-                  | Roswell . 16 feb, 17
-                  span
-                    | Which movie have you watched recently?
-              span
-                = link_to "#" do
-                  | view older notifications...
         .header-user
           .header-user-btn.dropdown
             div[data-toggle="dropdown"]

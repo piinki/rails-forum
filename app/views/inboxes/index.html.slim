@@ -1,0 +1,18 @@
+.create.border-none.margin-none
+  .ibox-tool.display-hidden
+    .ibox-tool-item
+      = link_to "Inbox"
+    .ibox-tool-item
+      = link_to "Sent"
+    .ibox-tool-item
+      = link_to "Trash"
+  .list-inbox
+    - @inboxes.each do |ib|
+      = link_to inbox_path(ib) do
+        .inbox-item
+          .creator
+            = ib.creator.full_name
+          .title
+            = ib.title
+          .inbox-time
+            | 12:35 AM

@@ -1,0 +1,11 @@
+= form_for [:managers, inbox] do |f|
+  = render "shared/error_messages", object: f.object
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :user_id
+    = f.text_field :user_id, class: "form-control"
+  .form-group
+    = f.label :content
+    = f.cktext_area :content, class: "form-control"

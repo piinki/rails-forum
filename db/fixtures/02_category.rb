@@ -6,5 +6,7 @@ categories.each do |c|
     s.title = c
     s.permission_view = 0
     s.status = 0
+    s.description = "ABC"
+    s.limit_topic_pin = 5
   end
 end

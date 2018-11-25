@@ -1,4 +1,7 @@
 class Topic < ApplicationRecord
+  has_paper_trail
+  acts_as_paranoid
+
   belongs_to :category
   belongs_to :creator, class_name: User.name
   belongs_to :editor, class_name: User.name, optional: true
@@ -6,11 +9,14 @@ class Topic < ApplicationRecord
   has_many :banner_functions, as: :groupable, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :votes, as: :ownerable, dependent: :destroy
+  has_many :views, dependent: :destroy
 
   validates :title, presence: true
   validate :limit_pin_topic, if: :pin_at_changed?
 
   accepts_nested_attributes_for :posts, allow_destroy: true
+
+  delegate :moderators, to: :category
 
   scope :by_category, (lambda do |cates|
     where category: cates

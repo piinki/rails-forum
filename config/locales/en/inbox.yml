@@ -1,0 +1,10 @@
+en:
+  inbox:
+    template:
+      delete_title: "Your post #%{id} deleted"
+      delete_post: "<p>Ch&agrave;o bạn,&nbsp;</p>
+                    <p>B&agrave;i viết<em> <a href=\"%{link}\">[%{title}]</a></em>&nbsp;của bạn đ&atilde; bị x&oacute;a bởi <strong><span style=\"color:#e74c3c\">%{pic}</span></strong>
+                    v&igrave; l&yacute; do vi phạm quy định của diễn đ&agrave;n.&nbsp;</p>
+                    <p>Nếu bạn c&oacute; bất kỳ khiếu lại g&igrave; về quyết định n&agrave;y xin vui l&ograve;ng li&ecirc;n lạc với quản trị vi&ecirc;n qua&nbsp;chức năng Inbox v&agrave;&nbsp;xin chia buồn với bạn l&agrave; chức năng n&agrave;y đang x&acirc;y dựng.&nbsp;</p>"
+    messages:
+      not_found: "Cannot found inbox"

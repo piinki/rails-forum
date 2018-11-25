@@ -1,9 +1,25 @@
 class PostPolicy < ApplicationPolicy
   def create?
-    perform?
+    !user.banned?
   end
 
   def edit?
-    record.user == user || manager?
+    perform?
+  end
+
+  def destroy?
+    perform?
+  end
+
+  def restore?
+    admin? && moderator?
+  end
+
+  def moderator?
+    user.moderator? && record.topic.moderators.include?(user)
+  end
+
+  def executive?
+    record.user == user
   end
 end

@@ -1,6 +1,6 @@
 class TopicPolicy < ApplicationPolicy
   def new?
-    perform?
+    !user.banned?
   end
 
   def create?
@@ -8,23 +8,27 @@ class TopicPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.creator == user || perform?
+    perform?
   end
 
   def destroy?
-    edit?
+    perform?
+  end
+
+  def pin?
+    admin? || moderator?
+  end
+
+  def executive?
+    record.creator == user
+  end
+
+  def moderator?
+    user.moderator? && record.moderators.include?(user)
   end
 
   def toggle_lock?
-    return false if user.banned?
-    case user.role
-    when "normal"
-      user == record.creator
-    when "moderator"
-      record.category.moderators.include?(user) && !record.creator.admin?
-    when "admin"
-      true
-    end
+    perform?
   end
 
   class Scope < Scope

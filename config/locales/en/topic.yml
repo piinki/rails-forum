@@ -9,9 +9,20 @@ en:
     form:
       reply_post: "Reply post"
     messages:
-      create_successful: "Create topic successful"
+      create_success: "Create topic successfully"
       create_fail: "Cannot create topic"
-      update_successful: "Edit topic successful"
+      update_success: "Edit topic successfully"
       update_fail: "Cannot edit topic"
-      delete_successful: "Delete topic successful"
+      delete_success: "Delete topic successfully"
       delete_fails: "Cannot delete topic"
+      pin_success: "This topic have pined"
+      pin_fail: "Cannot pin topic. %{error}"
+      unpin_success: "This topic have pined"
+      unpin_fail: "Cannot pin topic."
+      update_status_success: "Update status topic successfully"
+      update_status_fail: "Cannot update status topic"
+    history:
+      update: "%{name} edited post at %{time}"
+      create: "%{name} created post at %{time}"
+      destroy: "%{name} deleted post at %{time}"
+      restore: "%{name} restored post at %{time}"

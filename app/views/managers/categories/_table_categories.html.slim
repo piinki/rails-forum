@@ -16,9 +16,9 @@
                 | Status
               th.width-10
                 | Permission
-              th.width-30
+              th.width-40
                 | Moderator
-              th.width-20
+              th.width-10
                 |  Action
           tbody
             - categories.each do |category|
@@ -33,21 +33,19 @@
                 td.width-10
                   span class="#{Settings.css.category[category.permission_view]}"
                     = category.permission_view
-                td.width-30
+                td.width-40
                   - category.category_managers.each do |cm|
                     span class="#{Settings.css.roles.moderator}"
                       = cm.user.full_name
-                td.width-20
-                  .btn-group.dropdown
-                    button.btn.btn-success.dropdown-toggle.btn-sm[type="button" data-toggle="dropdown"]
-                      |  Action
-                    .dropdown-menu
-                      = link_to new_managers_category_category_manager_path(category), class: "dropdown-item" do
-                        = icon "fas", "plus"
-                        | Add moderator
-                      = link_to edit_managers_category_path(id: category.id) , class: "dropdown-item" do
-                        = icon "fas", "edit"
-                        | Edit
-                      = link_to managers_category_path(id: category.id), class: "dropdown-item", method: :delete, data: {confirm: "Are you sure"} do
-                        = icon "fas", "trash"
-                        | Delete
+                td.width-10
+                  - if current_user.admin?
+                    .btn-group.dropdown
+                      button.btn.btn-success.dropdown-toggle.btn-sm[type="button" data-toggle="dropdown"]
+                        |  Action
+                      .dropdown-menu
+                        = link_to new_managers_category_category_manager_path(category), class: "dropdown-item" do
+                          | Add moderator
+                        = link_to edit_managers_category_path(id: category.id) , class: "dropdown-item" do
+                          | Edit
+                        = link_to managers_category_path(id: category.id), class: "dropdown-item", method: :delete, data: {confirm: "Are you sure"} do
+                          | Delete
