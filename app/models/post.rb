@@ -3,11 +3,10 @@ class Post < ApplicationRecord
   has_paper_trail
 
   belongs_to :user
-  belongs_to :topic
+  belongs_to :topic, counter_cache: true
   belongs_to :editor, class_name: User.name, optional: true
 
   has_many :votes, as: :ownerable, dependent: :destroy
-
 
   validates :content, presence: true
 

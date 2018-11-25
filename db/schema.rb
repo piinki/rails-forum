@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_025411) do
+ActiveRecord::Schema.define(version: 2018_11_25_071215) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -80,10 +80,12 @@ ActiveRecord::Schema.define(version: 2018_11_23_025411) do
 
   create_table "inboxes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
+    t.integer "recipient_id"
     t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.string "title", null: false
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2018_11_23_025411) do
     t.boolean "is_root"
     t.integer "editor_id"
     t.datetime "deleted_at"
+    t.integer "view", default: 0
     t.index ["deleted_at"], name: "index_posts_on_deleted_at"
   end
 
@@ -124,6 +127,8 @@ ActiveRecord::Schema.define(version: 2018_11_23_025411) do
     t.datetime "pin_at"
     t.integer "editor_id"
     t.datetime "deleted_at"
+    t.integer "views_count", default: 0
+    t.integer "posts_count", default: 1
     t.index ["deleted_at"], name: "index_topics_on_deleted_at"
   end
 
@@ -164,6 +169,14 @@ ActiveRecord::Schema.define(version: 2018_11_23_025411) do
     t.text "object", limit: 4294967295
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  end
+
+  create_table "views", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "ip_address"
+    t.integer "topic_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

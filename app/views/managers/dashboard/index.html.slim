@@ -1,4 +1,50 @@
 .dashboard-index
-  .row.col-lg-12.grid-margin.stretch-card
-    .card
-      .card-body
+  .row
+    .col-xl-3.col-lg-3.col-md-3.col-sm-6.grid-margin.stretch-card
+      .card.card-statistics
+        .card-body
+          .clearfix
+            .float-left
+              = icon "fas", "newspaper", class: "text-danger icon-lg"
+            .float-right
+              p.mb-0.text-right
+                | Topic
+              .fluid-container
+                h3.font-weight-medium.text-right.mb-0
+                  = Topic.all.size
+    .col-xl-3.col-lg-3.col-md-3.col-sm-6.grid-margin.stretch-card
+      .card.card-statistics
+        .card-body
+          .clearfix
+            .float-left
+              = icon "fas", "user-circle", class: "text-info icon-lg"
+            .float-right
+              p.mb-0.text-right
+                | Members
+              .fluid-container
+                h3.font-weight-medium.text-right.mb-0
+                  = User.all.size
+    .col-xl-3.col-lg-3.col-md-3.col-sm-6.grid-margin.stretch-card
+      .card.card-statistics
+        .card-body
+          .clearfix
+            .float-left
+              = icon "fas", "chart-bar", class: "text-success icon-lg"
+            .float-right
+              p.mb-0.text-right
+                | Access quality
+              .fluid-container
+                h3.font-weight-medium.text-right.mb-0
+                  | 3455/day
+    .col-xl-3.col-lg-3.col-md-3.col-sm-6.grid-margin.stretch-card
+      .card.card-statistics
+        .card-body
+          .clearfix
+            .float-left
+              = icon "fas", "battery-full", class: "text-warning icon-lg"
+            .float-right
+              p.mb-0.text-right
+                | Server performance
+              .fluid-container
+                h3.font-weight-medium.text-right.mb-0
+                  | Calculating...

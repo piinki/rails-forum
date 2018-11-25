@@ -3,9 +3,12 @@ en:
     edit:
       title: Reply post
     messages:
-      create_successful: "Reply successful"
+      not_found: "Cannot found topic"
+      create_success: "Reply successfully"
       create_fail: "Cannot reply"
-      update_successful: "Edit reply successful"
+      update_success: "Edit reply successfully"
       update_fail: "Cannot edit reply"
-      delete_successful: "Delete successful"
-      delete_fails: "Cannot delete reply"
+      delete_success: "Delete successfully"
+      delete_fail: "Cannot delete reply"
+      restore_success: "Restore successfully"
+      restore_fail: "Cannot restore post"

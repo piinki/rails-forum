@@ -1,0 +1,9 @@
+.manager-inbox-new
+  .row
+    = render "sidebar"
+    .col-sm-12.col-md-10.grid-margin.stretch-card
+      .card
+        .card-body
+          = render "form", inbox: @inbox
+  = link_to new_managers_inbox_path, class: "btn-create-circle" do
+    = icon "fas", "plus"

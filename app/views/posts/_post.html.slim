@@ -6,15 +6,15 @@
           = image_tag "B.svg", alt: "avatar"
       .topic-caption
         .topic-name
-          = link_to post.user_full_name, "#"
+          = link_to post.user_full_name, "#", class: "#{post.user.banned? ? "banned-user" : ""}"
           - if current_user && policy(:post).admin?
             .dropdown
               span.dropdown-toggle data-toggle="dropdown"
               ul.dropdown-menu.dropdown--design-01
                 - if post.user.banned?
-                  = link_to "Unban", user_unban_path, method: :patch, class: "dropdown-item"
+                  = link_to "Unban", user_unban_path(post.user), method: :patch, class: "dropdown-item"
                 - else
-                  = link_to "Ban", user_viewban_path, class: "dropdown-item"
+                  = link_to "Ban", user_viewban_path(post.user), class: "dropdown-item"
           div
             - if post.user.banned?
               span class="badge badge-warning"
@@ -36,15 +36,15 @@
       .topic-footer
         .topic-footer-likes
           div
-            = link_to "#" do
+            = link_to upvote_post_path(post.id), remote: true do
               = icon "fas", "chevron-circle-up"
-            span
-              | 201
+            span id="upvote-post-#{post.id}"
+              = post.votes.up_vote_type.size
           div
-            = link_to "#" do
+            = link_to downvote_post_path(post.id), remote: true do
               = icon "fas", "chevron-circle-down"
-            span
-              | 100
+            span id="downvote-post-#{post.id}"
+              = post.votes.down_vote_type.size
         .topic-footer-share
           div[data-visible="desktop"]
             a[href="#reply-form"]

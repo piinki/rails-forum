@@ -13,7 +13,7 @@ class HistoryPostsController < ApplicationController
     @post = Post.find_by id: params[:post_id]
     return if post
 
-    flash[:warning] = "Cannot found post"
+    flash[:warning] = t "post.messages.not_found"
     redirect_to root_path
   end
 end

@@ -1,9 +1,9 @@
 #Normal User
-5.times do
+5.times do |i|
   User.seed do |s|
     s.first_name = Faker::Name.first_name
     s.last_name = Faker::Name.last_name
-    s.email = Faker::Internet.email
+    s.email = "user-#{i}@gmail.com"
     s.password = "123456"
   end
 end
@@ -18,7 +18,7 @@ prefix_name.each do |p|
     s.last_name = "Moderator"
     s.email = "#{p.downcase}.moderator@gmail.com"
     s.password = "123456"
-    s.role = 2
+    s.role = 1
   end
 end
 

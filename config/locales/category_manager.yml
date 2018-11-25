@@ -1,0 +1,8 @@
+en:
+  category_manager:
+    messages:
+      not_found: "Cannot found category manager"
+      create_successful: "Add moderator successfully"
+      create_fail: "Cannot add moderator"
+      delete_successful: "Remove moderator successfully"
+      delete_fail: "Cannot remove moderator"

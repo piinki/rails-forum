@@ -2,10 +2,10 @@ ul
   - histories.order(id: :desc).each do |hs|
     - if ["destroy", "restore"].include? hs.event
       = render "history_posts/row_history", \
-        his_name: hs.whoactor.full_name, his_time: l(hs.created_at, format: :short), his_event: hs.event
+        his_name: hs.whoactor.full_name, his_time: l(hs.created_at, format: :short), his_event: hs.event, index: hs.id
     - elsif hs.next
       = render "history_posts/row_history", \
-        his_name: hs.whoactor.full_name, his_time: l(hs.created_at, format: :short), his_content: hs.next.reify.content, his_event: hs.event
+        his_name: hs.whoactor.full_name, his_time: l(hs.created_at, format: :short), his_content: hs.next.reify.content, his_event: hs.event, index: hs.id
     - else
       = render "history_posts/row_history", \
-        his_name: hs.whoactor.full_name, his_time: l(hs.created_at, format: :short), his_content: post.content, his_event: hs.event
+        his_name: hs.whoactor.full_name, his_time: l(hs.created_at, format: :short), his_content: post.content, his_event: hs.event, index: hs.id

@@ -21,12 +21,15 @@ Rails.application.routes.draw do
   patch "posts/:id/restore", to: "posts#restore", as: :post_restore
   resources :topics do
     resources :posts, shallow: true do
+      member do
+        get :upvote, :downvote
+      end
       resources :history, controller: :history_posts
     end
   end
 
   resources :categories, only: %i(show)
-
+  resources :inboxes
   resources :profile do
     collection do
       get "change_password", to: "profile#change_password"
@@ -40,7 +43,20 @@ Rails.application.routes.draw do
     resources :categories, shallow: true do
       resources :category_managers
     end
-    resources :users, except: :create
+
+    resources :inboxes
+
+    resources :users, except: :create do
+      member do
+        patch "ban"
+        patch "unban"
+        patch "restore"
+      end
+      collection do
+        get "banned"
+        get "deleted"
+      end
+    end
   end
 
   # For demo ui

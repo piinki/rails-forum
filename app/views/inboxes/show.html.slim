@@ -1,0 +1,8 @@
+.ibox-show.border-none.margin-none
+  .ibox-item
+    .from
+      = @inbox.creator == current_user ? "Từ tôi" : @inbox.creator.full_name
+    .to
+      = @inbox.recipient == current_user ? "tới tôi" : inbox.recipient.full_name
+    .content
+      = @inbox.content.html_safe

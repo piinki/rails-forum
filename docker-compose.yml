@@ -8,11 +8,7 @@ services:
         MYSQL_HOST: ${MYSQL_HOST}
         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - 3000:3000
-    command: rails s
-    stdin_open: true
-    tty: true
-    restart: unless-stopped
+      - 80:3000
     volumes:
       - .:/myapp:cached
     depends_on:

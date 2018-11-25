@@ -1,0 +1,2 @@
+$('#upvote-post-' + <%= @post.id %>).html('<%= @post.votes.up_vote_type.size %>')
+$('#downvote-post-' + <%= @post.id %>).html('<%= @post.votes.down_vote_type.size %>')

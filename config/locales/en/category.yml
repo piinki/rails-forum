@@ -9,3 +9,12 @@ en:
         permission_views:
           everyone: "Everyone"
           user: "Only user"
+  category:
+    messages:
+      not_found: "Cannot found category"
+      create_success: "Reply successfully"
+      create_fail: "Cannot reply"
+      update_success: "Edit reply successfully"
+      update_fail: "Cannot edit reply"
+      delete_success: "Delete successfully"
+      delete_fail: "Cannot delete reply"

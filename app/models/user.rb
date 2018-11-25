@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :topics, dependent: :destroy, foreign_key: :creator_id
   has_many :banner_functions, dependent: :destroy
   has_many :category_managers, dependent: :destroy
+  has_many :inboxes, dependent: :destroy, foreign_key: :creator_id
+  has_many :inbox_recipients, foreign_key: :recipient_id, class_name: "Inbox"
   has_one :user_token, dependent: :destroy
 
   has_one_attached :avatar
@@ -23,6 +25,9 @@ class User < ApplicationRecord
   scope :not_manager_category,(lambda do |cate|
     where.not id: cate.moderators.ids
   end)
+
+  scope :banned, -> { where.not expired_at: nil }
+  scope :acceptable, -> { where expired_at: nil }
 
   def root_path
     routes = Rails.application.routes.url_helpers

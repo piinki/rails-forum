@@ -2,5 +2,9 @@
   .row.col-lg-12.grid-margin.stretch-card
     .card
       .card-body
-        = render "table_users", users: @users
-        = paginate @users
+        - if @users.present?
+          = render "table_users", users: @users
+          = paginate @users
+        - else
+          = image_tag "no-data.png", class: "img-no-data"
+          h4.text-center No data

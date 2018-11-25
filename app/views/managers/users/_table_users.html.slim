@@ -8,11 +8,9 @@
         table.table.table-striped
           thead
             tr
-              th.width-20
-                | First name
-              th.width-20
-                | Last name
-              th.width-20
+              th.width-30
+                | Name
+              th.width-30
                 | Email
               th.width-20
                 | Role
@@ -21,11 +19,9 @@
           tbody
             - users.each do |user|
               tr
-                td.width-20
-                  = user.first_name
-                td.width-20
-                  = user.last_name
-                td.width-20
+                td.width-30
+                  = link_to user.full_name, managers_user_path(user)
+                td.width-30
                   = user.email
                 td.width-20
                   span class="#{Settings.css.roles[user.role]}"

@@ -15,3 +15,16 @@ en:
               blank: "What's is your name?"
             password_confirmation:
               confirmation: "don't match password below"
+  user:
+    messages:
+      not_found: "Cannot found user"
+      ban_success: "User banned"
+      ban_fail: "Cannot ban user"
+      unban_success: "User un-banned"
+      unban_fail: "Cannot unban user"
+      delete_success: "Delete user successfully"
+      delete_fail: "Cannot delete user"
+      change_permision_success: "Change permision successfully"
+      change_permision_fail: "Cannot change permision"
+      restore_success: "Restore successfully"
+      restore_fail: "Cannot restore post"
