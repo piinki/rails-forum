@@ -7,9 +7,9 @@ class ProfileController < ApplicationController
 
   def update
     if user.update_attributes params_profile
-      flash[:success] = "Update profile sucessful"
+      flash[:success] = t "profile.messages.update_success"
     else
-      flash[:success] = "Update password sucessful"
+      flash[:warning] = t "profile.messages.update_fail"
     end
     redirect_to profile_index_path
   end
@@ -20,10 +20,10 @@ class ProfileController < ApplicationController
     current_user.current_password = params[:current_password]
     if current_user.update_attributes params_change_password
       sign_in(current_user, bypass: true)
-      flash[:success] = "Update password sucessful"
+      flash[:success] = t "profile.messages.update_password_success"
       redirect_to profile_index_path
     else
-      flash[:success] = "Update password sucessful"
+      flash[:warning] = t "profile.messages.update_password_fail"
       render :change_password
     end
   end
@@ -36,7 +36,7 @@ class ProfileController < ApplicationController
     @user = User.find_by id: params[:id]
     return if user
 
-    flash[:warning] = "Cannot found user"
+    flash[:warning] = t "user.messages.not_found"
     redirect_to profile_index_path
   end
 

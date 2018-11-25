@@ -14,8 +14,8 @@ class ApplicationPolicy
     edit?
   end
 
-  def manager?
-    user.admin? || user.moderator?
+  def moderator?
+    user.moderator?
   end
 
   def admin?
@@ -27,7 +27,15 @@ class ApplicationPolicy
   end
 
   def perform?
-    !user.banned? || manager?
+    return false if user.banned?
+    case user.role
+    when "normal"
+      executive?
+    when "moderator"
+      moderator?
+    when "admin"
+      true
+    end
   end
 
   class Scope

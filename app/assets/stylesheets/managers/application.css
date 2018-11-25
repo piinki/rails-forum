@@ -13,6 +13,7 @@
  *= require ./layout
  *= require ./category
  *= require ./custom
+ *= require ./inbox
  *= require comon
  *= require_self
  */

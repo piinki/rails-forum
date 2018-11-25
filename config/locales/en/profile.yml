@@ -1,0 +1,7 @@
+en:
+  profile:
+    messages:
+      update_success: "Update profile successfully"
+      update_fail: "Cannot update profile"
+      update_password_success: "Update password successfully"
+      update_password_fail: "Cannot update password"

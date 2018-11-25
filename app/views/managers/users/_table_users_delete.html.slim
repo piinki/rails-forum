@@ -1,0 +1,28 @@
+.row.col-lg-12.grid-margin.stretch-card
+  .card
+    .card-head
+      h4.card-title
+        | Users deleted
+    .card-body
+      .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th.width-40
+                | Name
+              th.width-40
+                | Email
+              th.width-20
+                | Action
+          tbody
+            - users.each do |user|
+              tr
+                td.width-40
+                  = link_to user.full_name, managers_user_path(user)
+                td.width-40
+                  = user.email
+                td.width-20
+                  - if current_user.admin?
+                    = link_to restore_managers_user_path(user), method: :patch, class: "btn btn-success" do
+                      = icon "fas", "fa-edit"
+                      | Restore

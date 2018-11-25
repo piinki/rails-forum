@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by id: params[:id]
     return if category
 
-    flash[:warning] = "Cannot found category"
+    flash[:warning] = t "category.messages.not_found"
     redirect_to root_path
   end
 end

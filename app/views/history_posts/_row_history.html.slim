@@ -1,0 +1,6 @@
+li.history-item
+  .history-head data-toggle="collapse" data-target="#his-#{index}"
+    = t "topic.history.#{his_event.downcase}", name: his_name, time: l(his_time.to_time, format: :short)
+  .history-content.collapse id="his-#{index}"
+    - if defined?(his_content)
+      = his_content.html_safe

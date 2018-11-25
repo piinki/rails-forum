@@ -1,69 +1,29 @@
 nav.navbar.default-layout.col-lg-12.col-12.p-0.fixed-top.d-flex.flex-row
   .text-center.navbar-brand-wrapper.d-flex.align-items-top.justify-content-center
-    = link_to "#", class: "navbar-brand brand-logo" do
+    = link_to "/", class: "navbar-brand brand-logo" do
       = image_tag "managers/logo.svg", alt: "logo"
-    = link_to "#", class: "navbar-brand brand-logo-mini" do
+    = link_to "/", class: "navbar-brand brand-logo-mini" do
       = image_tag "managers/logo-mini.svg", alt: "logo"
   .navbar-menu-wrapper.d-flex.align-items-center
     ul.navbar-nav.navbar-nav-right
       li.nav-item.dropdown
-        a#notificationDropdown.nav-link.count-indicator.dropdown-toggle[href="#" data-toggle="dropdown"]
-          = icon "fas", "bell"
+        = link_to managers_inboxes_path, class: "nav-link count-indicator" do
+          = icon "fas", "inbox"
           span.count
             | 4
-        .dropdown-menu.dropdown-menu-right.navbar-dropdown.preview-list[aria-labelledby="notificationDropdown"]
-          a.dropdown-item
-
-          p.mb-0.font-weight-normal.float-left
-            | You have 4 new notifications
-          span.badge.badge-pill.badge-warning.float-right
-            | View all
-          .dropdown-divider
-          a.dropdown-item.preview-item
-
-          .preview-thumbnail
-            .preview-icon.bg-success
-              i.mdi.mdi-alert-circle-outline.mx-0
-          .preview-item-content
-            h6.preview-subject.font-weight-medium.text-dark
-              | Application Error
-            p.font-weight-light.small-text
-              |  Just now
-          .dropdown-divider
-          a.dropdown-item.preview-item
-
-          .preview-thumbnail
-            .preview-icon.bg-warning
-              i.mdi.mdi-comment-text-outline.mx-0
-          .preview-item-content
-            h6.preview-subject.font-weight-medium.text-dark
-              | Settings
-            p.font-weight-light.small-text
-              |  Private message
-          .dropdown-divider
-          a.dropdown-item.preview-item
-
-          .preview-thumbnail
-            .preview-icon.bg-info
-              i.mdi.mdi-email-outline.mx-0
-          .preview-item-content
-            h6.preview-subject.font-weight-medium.text-dark
-              | New user registration
-            p.font-weight-light.small-text
-              |  2 days ago
       li.nav-item.dropdown.d-none.d-xl-inline-block
         a#UserDropdown.nav-link.dropdown-toggle[href="#" data-toggle="dropdown" aria-expanded="false"]
           span.profile-text
-          = current_user.full_name ? current_user.full_name : "Anonymous"
+            = current_user.full_name ? current_user.full_name : "Anonymous"
           - if current_user.avatar.attached?
             = image_tag current_user.avatar, class: "img-xs rounded-circle"
           - else
             = image_tag "Bot.svg", class: "img-xs rounded-circle"
+          | &nbsp;
           = icon "fas", "angle-down"
         .dropdown-menu.dropdown-menu-right.navbar-dropdown[aria-labelledby="UserDropdown"]
           = link_to "Home Page", root_path, class: "dropdown-item mt-2"
-          = link_to "Change Password", "#", class: "dropdown-item"
-          = link_to "Check Inbox", "#", class: "dropdown-item"
+          = link_to "Change Password", change_password_profile_index_path, class: "dropdown-item"
           = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"
     button.navbar-toggler.navbar-toggler-right.d-lg-none.align-self-center[type="button" data-toggle="offcanvas"]
       span.mdi.mdi-menu

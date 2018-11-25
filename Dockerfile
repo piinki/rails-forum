@@ -29,5 +29,6 @@ COPY Gemfile* ./
 RUN bundle install
 
 COPY . /myapp
-
 EXPOSE 3000
+
+RUN if [ "$RAILS_ENV" = 'production' ]; then bundle exec rake assets:precompile assets:clean ; fi

@@ -103,3 +103,20 @@ nav.pagination {
 		margin-bottom: 0;
 	}
 }
+
+.profile-avatar {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.deleted-post {
+	text-decoration: line-through !important;
+}
+
+.img-no-data {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 40%;
+}

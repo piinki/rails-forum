@@ -10,30 +10,37 @@ nav#sidebar.sidebar.sidebar-offcanvas
               = image_tag "Bot.svg", class: "img-xs rounded-circle"
           .text-wrapper
             p.profile-name
-              | Richard V.Welsh
+              = link_to current_user.full_name, managers_users_path(current_user)
             div
               small.designation.text-muted
-                | Manager
+                = current_user.role.capitalize
               span.status-indicator.online
     li.nav-item
       = link_to managers_categories_path, class: "nav-link" do
-        = icon "fas", "bomb"
+        = icon "fas", "th"
         span.menu-title
           | Categories
     li.nav-item
-      = link_to managers_users_path, class: "nav-link" do
-        = icon "fas", "bomb"
-        span.menu-title
-          | User
-    li.nav-item
       = link_to "#ui-basic", class: "nav-link", data: {toggle: "collapse"} do
-        = icon "fas", "book"
+        = icon "fas", "user-astronaut"
         span.menu-title
-          | Demo Sub Menu
+          | User management
         = icon "fas", "angle-down"
-      #ui-basic.collapse
+      #ui-basic.collapse class="#{controller_name == "users" ? "show" : ""}"
         ul.nav.flex-column.sub-menu
           li.nav-item
-            = link_to "Buttons", "#", class: "nav-link"
-          li.nav-item
-            = link_to "Typography", "#", class: "nav-link"
+            = link_to managers_users_path, class: "nav-link" do
+              = icon "fas", "user-check"
+              span.menu-title
+                | Users
+          - if current_user.admin?
+            li.nav-item
+              = link_to banned_managers_users_path, class: "nav-link" do
+                = icon "fas", "user-ninja"
+                span.menu-title
+                  | Users banned
+            li.nav-item
+              = link_to deleted_managers_users_path, class: "nav-link" do
+                = icon "fas", "user-alt-slash"
+                span.menu-title
+                  | Users deleted

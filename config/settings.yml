@@ -54,5 +54,5 @@ css:
   category:
     published: badge badge-success
     unpublish: badge badge-danger
-    user: badge badge-info
+    user: badge badge-warning
     everyone: badge badge-success

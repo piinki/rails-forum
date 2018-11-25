@@ -3,13 +3,13 @@
 .btn-create-circle {
   background-color: $color-14;
   border-radius: 50%;
-  bottom: 30px;
+  bottom: 50px;
   box-shadow: 0 1px 4px 2px $color-1;
   color: $white;
   height: 40px;
   padding: 5px;
   position: fixed;
-  right: 30px;
+  right: 50px;
   text-align: center;
   width: 40px;
 
@@ -22,5 +22,16 @@
     color: $white;
     cursor: pointer;
     transition: .2s ease-in;
+  }
+}
+.manager-category-index {
+  .table {
+    td, th {
+      white-space: normal;
+    }
+  }
+
+  .badge {
+    margin: 1px;
   }
 }

@@ -1,0 +1,43 @@
+.manager-user-show
+  .row
+    .col-sm-12.col-md-3.grid-margin
+      .card
+        .card-body
+          .profile-image
+            - if @user.avatar.attached?
+              = image_tag @user.avatar, class: "img-lg profile-avatar"
+            - else
+              = image_tag "Bot.svg", class: "img-lg profile-avatar"
+            h4.text-center #{@user.full_name}
+            .text-center
+              span class="#{Settings.css.roles[@user.role]}"
+                = @user.role
+            .text-center.profile-email.small
+                =  @user.email
+    .col-sm-12.col-md-9.grid-margin.stretch-card
+      .card
+        .card-body
+          - if @topics.present?
+            .table-responsive
+              table.table.table-striped
+                thead
+                  tr
+                    th.width-5
+                      | #
+                    th.width-90
+                      | Topic name
+                    th.width-5
+                      | View
+                tbody
+                  - @topics.with_deleted.each_with_index do |topic, index|
+                    tr
+                      td.width-5
+                        = index + 1
+                      td.width-90 class="#{topic.deleted? ? "deleted-post" : "" }"
+                        = link_to topic.title, topic_path(topic)
+                      td.width-5
+                        | 12.5k
+            = paginate @topics
+          - else
+            = image_tag "no-data.png", class: "img-no-data"
+            h4.text-center No data
