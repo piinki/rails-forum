@@ -119,6 +119,7 @@ class TopicsController < ApplicationController
   end
 
   def increase_view
+    return unless current_user
     viewer = topic.views.find_by user_id: current_user.id, ip_address: request.remote_ip
     return if viewer
     topic.views.create user_id: current_user.id, ip_address: request.remote_ip
