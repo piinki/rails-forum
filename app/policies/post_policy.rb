@@ -12,7 +12,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def restore?
-    admin? && moderator?
+    admin? || moderator?
   end
 
   def moderator?

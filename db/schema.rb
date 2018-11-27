@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2018_11_25_071215) do
     t.integer "editor_id"
     t.datetime "deleted_at"
     t.integer "views_count", default: 0
-    t.integer "posts_count", default: 1
+    t.integer "posts_count", default: 0
     t.index ["deleted_at"], name: "index_topics_on_deleted_at"
   end
 
