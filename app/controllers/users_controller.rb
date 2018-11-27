@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 	end
 
 	def ban
+		authorize user
 		if @user.update_attributes user_params
 			flash[:success] = t "user.messages.ban_success"
 			redirect_back_or @user
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
 	end
 
 	def unban
+		authorize user
 		if @user.update_attributes expired_at: nil
 			flash[:success] = t "user.messages.unban_success"
 		else

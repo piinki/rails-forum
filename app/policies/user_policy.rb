@@ -6,4 +6,12 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     executive?
   end
+
+  def ban?
+    admin? && user != record
+  end
+
+  def unban?
+    ban?
+  end
 end

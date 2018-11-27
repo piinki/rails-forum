@@ -7,7 +7,7 @@
       .topic-caption
         .topic-name
           = link_to post.user_full_name, "#", class: "#{post.user.banned? ? "banned-user" : ""}"
-          - if current_user && policy(:post).admin?
+          - if current_user && policy(:post).admin? && current_user != post.user
             .dropdown
               span.dropdown-toggle data-toggle="dropdown"
               ul.dropdown-menu.dropdown--design-01
@@ -67,4 +67,5 @@
     .topic-text
       p
         | #{post.user_full_name}'s post has been delete by #{post.versions.last.whoactor.try(:full_name)}.
-      = link_to "Restore", post_restore_path(post), method: :patch
+      - if policy(post).restore?
+        = link_to "Restore", post_restore_path(post), method: :patch
