@@ -16,12 +16,13 @@ WORKDIR /myapp
 
 COPY Gemfile* ./
 RUN bundle install --without development test
-RUN cat Gemfile.lock
-
 COPY . .
 
 FROM baseenv as buildasset
-RUN yarn install && rake assets:precompile
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
+      && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+      && apt-get update && apt-get install yarn \
+      && rake assets:precompile
 
 FROM buildasset as webserver
 COPY --from=buildasset /myapp/public/assets/* ./public/assets/
