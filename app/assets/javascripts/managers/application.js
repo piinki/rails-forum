@@ -15,6 +15,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require ckeditor/init
 //= require bootstrap-sprockets
 //= require custom

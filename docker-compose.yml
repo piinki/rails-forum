@@ -4,21 +4,21 @@ services:
     build:
       context: .
       dockerfile: "Dockerfile"
-      args:
-        MYSQL_HOST: ${MYSQL_HOST}
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    target: webserver
+    command: ['rails', 's']
     ports:
       - 80:3000
     volumes:
-      - .:/myapp:cached
+      - .:/myapp
     depends_on:
       - db
     env_file: .env
+    restart: always
   db:
     image: mysql:5.7
     volumes:
-      - ./db/mysql:/var/lib/mysql:cached
-      - ./config/docker/mysql/conf.d:/etc/mysql/conf.d:cached
+      - ./db/mysql:/var/lib/mysql
     env_file: .env
     ports:
       - "3306:3306"
+    restart: always
