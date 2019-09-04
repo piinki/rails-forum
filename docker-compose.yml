@@ -1,10 +1,9 @@
-version: '3'
+version: '3.7'
 services:
   server:
     build:
       context: .
-      dockerfile: "Dockerfile"
-    target: webserver
+      target: webserver
     command: ['rails', 's']
     ports:
       - 80:3000
